@@ -1,0 +1,47 @@
+{
+    "name": "merntodo",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@babel/cli": "^7.1.5",
+        "@babel/core": "^7.1.6",
+        "@babel/node": "^7.6.1",
+        "@babel/preset-env": "^7.6.0",
+        "@babel/register": "^7.0.0",
+        "ajv": "^6.10.2",
+        "babel-node": "0.0.1-security",
+        "babel-preset-env": "^1.7.0",
+        "concurrently": "^4.1.2",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "express": "^4.17.1",
+        "nodemon": "^1.18.7",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "react-scripts": "3.1.1"
+    },
+    "scripts": {
+        "start": "concurrently \"npm run client\" \"npm run server\"",
+        "client": "react-scripts start",
+        "server": "nodemon --exec babel-node server/index.js",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
+
