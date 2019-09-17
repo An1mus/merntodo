@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Access from "./components/access";
+import TodoList from "./components/todolist";
 
 
 export default class App extends React.Component{
@@ -15,6 +16,7 @@ export default class App extends React.Component{
 		return (
 			<div className="App">
 				{!this.state.isLogged && <Access/>}
+				{this.state.isLogged && <TodoList/>}
 			</div>
 		);
 	}

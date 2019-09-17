@@ -1,0 +1,20 @@
+.todoListHolder{
+    width: 70%;
+}
+
+.todoAddition {
+    display: flex;
+}
+
+.todoAddition * {
+    margin-bottom: 0;
+}
+
+.todoList {
+    background: white;
+    list-style: none;
+    font-size: 1rem;
+    margin-top: 0;
+    min-height: 100vh;
+    padding: 2rem;
+}
