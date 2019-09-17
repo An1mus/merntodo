@@ -1,4 +1,17 @@
+*,
+* *,
+* * * {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 10px;
+    font-family: Roboto;
+}
+
 .App {
+    background: #f4f5f9;
+    color: #6672a6;
     display: flex;
     flex-direction: column;
     align-items: center;
