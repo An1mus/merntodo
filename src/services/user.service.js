@@ -1,40 +1,44 @@
-export default class userService {
+export const userService = {
+	login, logout
+};
 
-	login(username, password) {
-		const requestOptions = {
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({username, password})
-		};
+const serverUrl = 'http://localhost:8080';
+const authEndpoint = serverUrl + '/auth';
 
-		return fetch(`/auth`, requestOptions)
-			.then(this.checkReponse)
-			.then(user => {
-				localStorage.setItem('user', JSON.stringify(user));
+function login(username, password) {
+	const requestOptions = {
+		method: 'POST',
+		headers: {'Content-Type': 'application/json'},
+		body: JSON.stringify({username, password})
+	};
 
-				return user;
-			});
-	}
+	return fetch(authEndpoint, requestOptions)
+		.then(checkReponse)
+		.then(user => {
+			localStorage.setItem('user', JSON.stringify(user));
 
-	logout() {
-		localStorage.removeItem('user');
-	}
+			return user;
+		});
+}
 
-	checkReponse(response) {
-		return response.text()
-			.then(text => {
-				const data = text && JSON.parse(text);
-				if (!response.ok) {
-					if (response.status === 401) {
-						this.logout();
-						window.location.reload();
-					}
+function logout() {
+	localStorage.removeItem('user');
+}
 
-					const error = (data && data.message) || response.statusText;
-					return Promise.reject(error);
+function checkReponse(response) {
+	return response.text()
+		.then(text => {
+			const data = text && JSON.parse(text);
+			if (!response.ok) {
+				if (response.status === 401) {
+					this.logout();
+					window.location.reload();
 				}
 
-				return data;
-			});
-	}
-};
+				const error = (data && data.message) || response.statusText;
+				return Promise.reject(error);
+			}
+
+			return data;
+		});
+}

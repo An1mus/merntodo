@@ -16,7 +16,9 @@ function isUserExists(login) {
 	return credentials.username === login || credentials.email === login;
 }
 authRouter.use('/', (req, res, next) => {
-	const isLoginValid = ajv.validate('user-login', req.body);
+	const isLoginValid = ajv.validate('user-login', req.body.login);
+
+	console.log('Login endpoint trigger' + req.body);
 
 	if (isLoginValid) {
 		const token = jwt.sign(req.body, SECRET_KEY, { expiresIn: 10 });

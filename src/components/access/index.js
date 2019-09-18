@@ -1,14 +1,30 @@
 import React from 'react';
 import './access.css';
+import { connect } from 'react-redux';
 
-export default class Access extends React.Component {
+import { userActions } from '../../actions/actions';
 
-	constructor() {
-		super();
+class Access extends React.Component {
+
+	constructor(props) {
+		super(props);
+
 		this.state = {
 			userLogin: '',
-			userPassword: ''
+			userPassword: '',
+			submitted: false,
 		};
+	}
+
+	login(e) {
+		e.preventDefault();
+
+		this.setState({ submitted: true });
+
+		const { userLogin, userPassword } = this.state;
+		if (userLogin.length > 0 && userLogin && userPassword) {
+			this.props.login(userLogin, userPassword);
+		}
 	}
 
 	render() {
@@ -19,12 +35,24 @@ export default class Access extends React.Component {
 				</header>
 
 				<form>
-					<input type="text" placeholder={"login"}/>
-					<input type="text" placeholder={"password"}/>
+					<input
+						type="text"
+						value={this.state.userLogin}
+						onChange={e => this.setState({userLogin: e.target.value})}
+						placeholder={"login"}
+					/>
+					{this.state.submitted && !this.state.userLogin && <p>Login required</p>}
+
+					<input
+						type="text"
+						value={this.state.userPassword}
+						onChange={e => this.setState({userPassword: e.target.value})}
+						placeholder={"password"}
+					/>
+					{this.state.submitted && !this.state.userPassword && <p>Password required</p>}
 
 					<div className="buttons-Container">
-						<button>Register</button>
-						<button>login</button>
+						<button onClick={(e) => this.login(e)}>login</button>
 					</div>
 				</form>
 			</div>
@@ -32,3 +60,17 @@ export default class Access extends React.Component {
 	}
 
 }
+
+
+function mapState(state) {
+	const { loggingIn } = state.userLogin;
+	return { loggingIn };
+}
+
+const actionCreators = {
+	login: userActions.login,
+	logout: userActions.logout,
+};
+
+const connectedAccessComponent = connect(mapState, actionCreators)(Access);
+export { connectedAccessComponent as Access };
