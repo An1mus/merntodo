@@ -5,7 +5,7 @@ import { history } from './helpers/history';
 import './App.css';
 import { ProtectedRoute } from './helpers/protectedRoute';
 import { Access } from "./components/access";
-import TodoList from "./components/todolist";
+import { TodoList } from "./components/todolist";
 
 
 export default class App extends React.Component{

@@ -9,6 +9,7 @@ import STATUSES from './statuses';
  */
 function getPositiveAuthenticationResponse(email, username, token) {
 	return {
+		ok: true,
 		code: STATUSES.OK.code,
 		message: STATUSES.OK.text,
 		data: {
@@ -23,6 +24,7 @@ function getPositiveAuthenticationResponse(email, username, token) {
 
 function getNegativeAuthenticationResponse(error) {
 	return {
+		ok: false,
 		code: STATUSES.NOT_FOUND.code,
 		message: STATUSES.NOT_FOUND.text,
 		data: error || 'User not found, check the credentials',

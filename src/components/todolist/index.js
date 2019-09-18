@@ -1,12 +1,15 @@
 import React from 'react';
 import TodoListItem from './todoitem/';
 import './todolist.css'
+import { userActions } from "../../actions/actions";
+import { connect } from "react-redux";
 
-export default class TodoList extends React.Component{
+class TodoList extends React.Component{
 	id = 0;
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+
 		this.state = {
 			newTodo: '',
 			todos: [],
@@ -50,9 +53,14 @@ export default class TodoList extends React.Component{
 		});
 	}
 
+	logout() {
+		this.props.logout();
+	}
+
 	render() {
 		return (
 			<div className={"todoListHolder"}>
+				<button onClick={() => this.logout()}>Logout</button>
 				<p>Items left: {this.state.todos.filter((el) => {return !el.checked}).length}</p>
 
 				<div className="todoAddition">
@@ -87,3 +95,17 @@ export default class TodoList extends React.Component{
 		);
 	}
 }
+
+function mapState(state) {
+	const { loggingIn } = state.userLogin;
+	return { loggingIn };
+}
+
+const actionCreators = {
+	login: userActions.login,
+	logout: userActions.logout,
+};
+
+const connectedAccessComponent = connect(mapState, actionCreators)(TodoList);
+export { connectedAccessComponent as TodoList };
+

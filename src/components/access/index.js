@@ -27,6 +27,10 @@ class Access extends React.Component {
 		}
 	}
 
+	logout() {
+		this.props.logout();
+	}
+
 	render() {
 		return (
 			<div>
@@ -35,21 +39,21 @@ class Access extends React.Component {
 				</header>
 
 				<form>
+					{this.state.submitted && !this.state.userLogin && <p>Login required</p>}
 					<input
 						type="text"
 						value={this.state.userLogin}
 						onChange={e => this.setState({userLogin: e.target.value})}
 						placeholder={"login"}
 					/>
-					{this.state.submitted && !this.state.userLogin && <p>Login required</p>}
 
+					{this.state.submitted && !this.state.userPassword && <p>Password required</p>}
 					<input
 						type="text"
 						value={this.state.userPassword}
 						onChange={e => this.setState({userPassword: e.target.value})}
 						placeholder={"password"}
 					/>
-					{this.state.submitted && !this.state.userPassword && <p>Password required</p>}
 
 					<div className="buttons-Container">
 						<button onClick={(e) => this.login(e)}>login</button>
@@ -60,7 +64,6 @@ class Access extends React.Component {
 	}
 
 }
-
 
 function mapState(state) {
 	const { loggingIn } = state.userLogin;

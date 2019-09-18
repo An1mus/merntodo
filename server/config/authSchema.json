@@ -1,16 +1,8 @@
 {
-    "title": "Authentication",
-    "description": "Properties required for a user to log in",
     "type": "object",
+    "required": ["username", "password"],
     "properties": {
-        "login": {
-            "type": "string",
-            "description": "login, which can be email, or username"
-        },
-        "password": {
-            "type": "string",
-            "description": "password"
-        }
-    },
-    "required": ["login", "password"]
+        "username": { "type": "string" },
+        "password": { "type": "string" }
+    }
 }

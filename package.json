@@ -12,6 +12,7 @@
         "babel-node": "0.0.1-security",
         "babel-preset-env": "^1.7.0",
         "concurrently": "^4.1.2",
+        "cors": "^2.8.5",
         "eslint-config-airbnb-base": "^13.1.0",
         "eslint-plugin-import": "^2.14.0",
         "express": "^4.17.1",
@@ -23,7 +24,8 @@
         "react-scripts": "3.1.1",
         "redux": "^4.0.4",
         "redux-logger": "^3.0.6",
-        "redux-thunk": "^2.3.0"
+        "redux-thunk": "^2.3.0",
+        "sha256": "^0.2.0"
     },
     "scripts": {
         "start": "concurrently \"npm run client\" \"npm run server\"",

@@ -7,31 +7,29 @@ import SECRET_KEY from '../config/secret';
 import responses from '../helpers/responseTemplates';
 
 const authRouter = express.Router();
-const ajv = Ajv({ allErrors: true, removeAdditional: 'all' });
 
+const ajv = Ajv({ allErrors: true });
 ajv.addSchema(authSchema, 'user-login');
 
 function isUserExists(login) {
 	//TODO: change for DB call
-	return credentials.username === login || credentials.email === login;
+	return credentials.username === login;
 }
-authRouter.use('/', (req, res, next) => {
-	const isLoginValid = ajv.validate('user-login', req.body.login);
 
-	console.log('Login endpoint trigger' + req.body);
+authRouter.use('/', (req, res, next) => {
+	const isLoginValid = ajv.validate('user-login', req.body);
+	console.log(req.body);
 
 	if (isLoginValid) {
-		const token = jwt.sign(req.body, SECRET_KEY, { expiresIn: 10 });
+		if (isUserExists(req.body.username) && req.body.password === credentials.password) {
+			const token = jwt.sign(req.body, SECRET_KEY);
 
-		/**
-		 * TODO: review credentials comparison
-		 */
-		if (isUserExists(req.body.login) && req.body.password === credentials.password) {
 			res.json(responses.getPositiveAuthenticationResponse(
-				req.body.login,
+				req.body.username,
 				credentials.email,
 				token,
 			));
+
 			next();
 		} else {
 			res.json(responses.getNegativeAuthenticationResponse(
