@@ -1,0 +1,29 @@
+.todoItem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.todoItem * {
+    margin: 0;
+    width: initial;
+}
+
+.todoItem input {
+    height: initial;
+    margin-top: .3rem;
+    margin-right: 1%;
+}
+
+.todoItemId {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+    width: 3%;
+}
+
+.todoItemText {
+    margin-right: 2%;
+    width: 65%;
+}
