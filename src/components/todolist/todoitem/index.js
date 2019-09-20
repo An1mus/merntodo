@@ -5,6 +5,7 @@ export default class TodoListItem extends React.Component{
 	constructor(props) {
 		super();
 		this.state = {
+			index: props.index + 1,
 			props: props.todo,
 		}
 	}
@@ -12,7 +13,7 @@ export default class TodoListItem extends React.Component{
 	render() {
 		return (
 			<div className={"todoItem"}>
-				<p className={"todoItemId"}>{this.state.props.id}</p>
+				<p className={"todoItemId"}>{this.state.index}</p>
 				<input
 					type="checkbox"
 					checked={this.state.props.isFinished}

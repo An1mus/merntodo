@@ -2,31 +2,30 @@ import express from 'express';
 import Ajv from 'ajv';
 import jwt from 'jsonwebtoken';
 import authSchema from '../config/authSchema';
-import credentials from '../helpers/fakeCredentials';
 import SECRET_KEY from '../config/secret';
 import responses from '../helpers/responseTemplates';
+import db from '../db';
 
 const authRouter = express.Router();
 
 const ajv = Ajv({ allErrors: true });
 ajv.addSchema(authSchema, 'user-login');
 
-function isUserExists(login) {
-	//TODO: change for DB call
-	return credentials.username === login;
+async function getUserCredentialsIfexists(user) {
+	return await db.checkIfUserExists(user);
 }
 
-authRouter.use('/', (req, res, next) => {
+authRouter.use('/', async (req, res, next) => {
 	const isLoginValid = ajv.validate('user-login', req.body);
-	console.log(req.body);
+
+	const user = await getUserCredentialsIfexists(req.body);
 
 	if (isLoginValid) {
-		if (isUserExists(req.body.username) && req.body.password === credentials.password) {
+		if (user) {
 			const token = jwt.sign(req.body, SECRET_KEY);
 
 			res.json(responses.getPositiveAuthenticationResponse(
-				req.body.username,
-				credentials.email,
+				{id: user._id},
 				token,
 			));
 

@@ -1,20 +1,26 @@
 import sha256 from 'sha256';
 
+import {authEndpoint, registerEndpoint} from "./config";
+
 export const userService = {
-	login, logout
+	login,
+	logout,
+	register
 };
 
-const serverUrl = 'http://localhost:8080/';
-const authEndpoint = serverUrl + 'auth';
-
 function login(username, password) {
-	const requestOptions = {
-		method: 'POST',
-		headers: {'Content-Type': 'object'},
-		body: JSON.stringify({username, password}),
-	};
-
-	return fetch(authEndpoint+'?username=' + username + '&password=' + sha256(password))
+	return fetch( authEndpoint,
+		{
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				username,
+				password: sha256(password)
+			})
+		})
 		.then(parseResponse)
 		.then(data => {
 			const user = data && data.user ? data.user : {};
@@ -23,7 +29,34 @@ function login(username, password) {
 				localStorage.setItem('user', JSON.stringify(user));
 				return user;
 			} else {
-				alert('Raw response: Something went wrong');
+				alert('Incorrect credentials');
+			}
+		});
+}
+
+// TODO: implement registration
+function register(username, password) {
+	return fetch( registerEndpoint,
+		{
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				username,
+				password: sha256(password)
+			})
+		})
+		.then(parseResponse)
+		.then(data => {
+			const user = data && data.user ? data.user : {};
+
+			if(data.ok && data.code === 200) {
+				localStorage.setItem('user', JSON.stringify(user));
+				return user;
+			} else {
+				alert('Incorrect credentials');
 			}
 		});
 }

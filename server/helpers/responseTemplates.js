@@ -1,23 +1,11 @@
 import STATUSES from './statuses';
 
-/**
- * Gets user data to provide an object with successful auth credentials
- * @param email
- * @param username
- * @param token
- * @return {Object} - the positive response object, after successful authentication
- */
-function getPositiveAuthenticationResponse(email, username, token) {
+function getPositiveAuthenticationResponse(user, token) {
 	return {
 		ok: true,
 		code: STATUSES.OK.code,
 		message: STATUSES.OK.text,
-		data: {
-			user: {
-				email,
-				username,
-			},
-		},
+		user,
 		token,
 	};
 }
@@ -31,7 +19,47 @@ function getNegativeAuthenticationResponse(error) {
 	};
 }
 
+function getNegativeAdditionResponse(error) {
+	return {
+		ok: false,
+		code: STATUSES.NOT_FOUND.code,
+		message: STATUSES.NOT_FOUND.text,
+		data: error || 'Addition of the item wasn\'t successful',
+	};
+}
+
+function getPositiveAdditionResponse(result) {
+	return {
+		ok: true,
+		code: STATUSES.OK.code,
+		message: STATUSES.OK.text,
+		data: result,
+	};
+}
+
+function getPositiveGenericResponse(result) {
+	return {
+		ok: true,
+		code: STATUSES.OK.code,
+		message: STATUSES.OK.text,
+		data: result,
+	};
+}
+
+function getNegativeGenericResponse(error) {
+	return {
+		ok: false,
+		code: STATUSES.NOT_FOUND.code,
+		message: STATUSES.NOT_FOUND.text,
+		data: error || 'Addition of the item wasn\'t successful',
+	};
+}
+
 export default {
 	getPositiveAuthenticationResponse,
 	getNegativeAuthenticationResponse,
+	getPositiveAdditionResponse,
+	getNegativeAdditionResponse,
+	getPositiveGenericResponse,
+	getNegativeGenericResponse,
 };

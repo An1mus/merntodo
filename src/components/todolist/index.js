@@ -2,6 +2,7 @@ import React from 'react';
 import TodoListItem from './todoitem/';
 import './todolist.css'
 import { userActions } from "../../actions/actions";
+import { todoActions } from "../../actions/todoActions";
 import { connect } from "react-redux";
 
 class TodoList extends React.Component{
@@ -16,16 +17,32 @@ class TodoList extends React.Component{
 		}
 	}
 
-	addTodo() {
+	async componentDidMount() {
+		const user = JSON.parse(localStorage.getItem('user'));
+		const todos = await this.props.loadTodos(user.id);
+
 		this.setState({
+			todos: todos.length ? [...todos] : [],
+		})
+
+	}
+
+	addTodo() {
+		const user = JSON.parse(localStorage.getItem('user'));
+
+		const newTodo = {
+			id: this.id++,
+			label: this.state.newTodo,
+			checked: false,
+		};
+		this.setState({
+			newTodo: '',
 			todos: [
 				...this.state.todos,
-				{
-					id: this.id++,
-					label: this.state.newTodo,
-					checked: false,
-				}]
+				newTodo
+			]
 		});
+		this.props.addTodo(user.id, newTodo.label, newTodo.checked)
 	}
 
 	toggleTodo(id) {
@@ -47,10 +64,13 @@ class TodoList extends React.Component{
 		}
 	}
 
-	removeTodo(id) {
-		this.setState({
-			todos: this.state.todos.filter(el => el.id !== id),
-		});
+	removeTodo(owner, todoId) {
+		this.props.removeTodo(owner, todoId)
+			.then(() => {
+				this.setState({
+					todos: this.state.todos.filter(el => el._id !== todoId),
+				});
+			});
 	}
 
 	logout() {
@@ -60,7 +80,7 @@ class TodoList extends React.Component{
 	render() {
 		return (
 			<div className={"todoListHolder"}>
-				<button onClick={() => this.logout()}>Logout</button>
+				<button className={"logoutButton"} onClick={() => this.logout()}>Logout</button>
 				<p>Items left: {this.state.todos.filter((el) => {return !el.checked}).length}</p>
 
 				<div className="todoAddition">
@@ -79,13 +99,14 @@ class TodoList extends React.Component{
 				</div>
 
 				<ul className={"todoList"}>
-					{this.state.todos.map((todo) => {
+					{this.state.todos.map((todo, index) => {
 						return (
-							<li key={todo.id}>
+							<li key={todo._id}>
 								<TodoListItem
+									index={index}
 									todo={todo}
-									onToggle={() => this.toggleTodo(todo.id)}
-									onDelete={() => this.removeTodo(todo.id)}
+									onToggle={() => this.toggleTodo(todo.id)} // TODO: change for updating
+									onDelete={() => this.removeTodo(todo.owner, todo._id)}
 								/>
 							</li>
 						);
@@ -102,6 +123,9 @@ function mapState(state) {
 }
 
 const actionCreators = {
+	loadTodos: todoActions.loadTodos,
+	addTodo: todoActions.addTodo,
+	removeTodo: todoActions.removeTodo,
 	login: userActions.login,
 	logout: userActions.logout,
 };

@@ -2,6 +2,7 @@
 * *,
 * * * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
@@ -16,6 +17,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    padding: 1rem;
     width: 100%;
 }
 

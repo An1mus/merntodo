@@ -49,7 +49,7 @@ class Access extends React.Component {
 
 					{this.state.submitted && !this.state.userPassword && <p>Password required</p>}
 					<input
-						type="text"
+						type="password"
 						value={this.state.userPassword}
 						onChange={e => this.setState({userPassword: e.target.value})}
 						placeholder={"password"}
