@@ -5,6 +5,7 @@ import { history } from '../helpers/history';
 export const userActions = {
 	login,
 	logout,
+	registrate,
 };
 
 function login(username, password) {
@@ -26,6 +27,26 @@ function login(username, password) {
 	function request(user) { return { type: userConstants.LOGIN, user } }
 	function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
 	function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+}
+
+function registrate(username, password) {
+	return async dispatch => {
+		function onSuccess(success) {
+			dispatch({ type: userConstants.REGISTRATION_SUCCESS, payload: success });
+			history.push('/');
+			return success;
+		}
+		function onError(error) {
+			dispatch({ type: userConstants.REGISTRATION_FAILURE, error });
+			return error;
+		}
+		try {
+			const success = await userService.registrate(username, password);
+			return onSuccess(success);
+		} catch (error) {
+			return onError(error);
+		}
+	}
 }
 
 function logout() {

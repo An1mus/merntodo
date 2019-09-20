@@ -7,6 +7,7 @@ const dbInterface = {
 	addTodo,
 	getTodos,
 	removeTodo,
+	addUser,
 };
 
 const MongoClient = mongodb.MongoClient;
@@ -25,6 +26,22 @@ async function checkIfUserExists(user) {
 
 	return result;
 }
+
+async function addUser(user) {
+	const db = await MongoClient.connect(
+		mongoUrl,
+		{
+			useNewUrlParser: true,
+			useUnifiedTopology: true
+		});
+	const dbo = await db.db("todo");
+	const result = await dbo.collection("users").insertOne(user);
+
+	db.close();
+
+	return result;
+}
+
 
 async function addTodo(todo) {
 	const db = await MongoClient.connect(

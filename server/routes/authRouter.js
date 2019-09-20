@@ -15,7 +15,7 @@ async function getUserCredentialsIfexists(user) {
 	return await db.checkIfUserExists(user);
 }
 
-authRouter.use('/', async (req, res, next) => {
+authRouter.post('/auth', async (req, res, next) => {
 	const isLoginValid = ajv.validate('user-login', req.body);
 
 	const user = await getUserCredentialsIfexists(req.body);
@@ -33,6 +33,34 @@ authRouter.use('/', async (req, res, next) => {
 		} else {
 			res.json(responses.getNegativeAuthenticationResponse(
 				'User not found or invalid credentials',
+			));
+		}
+	} else {
+		res.json(responses.getNegativeAuthenticationResponse(
+			ajv.errors,
+		));
+	}
+});
+
+authRouter.post('/register', async (req, res, next) => {
+	const isLoginValid = ajv.validate('user-login', req.body);
+
+	const user = await getUserCredentialsIfexists({username: req.body.username});
+
+	if (isLoginValid) {
+		if (!user) {
+			const result = await db.addUser(req.body);
+			const token = jwt.sign(req.body, SECRET_KEY);
+
+			res.json(responses.getPositiveAuthenticationResponse(
+				{id: result.insertedId },
+				token,
+			));
+
+			next();
+		} else {
+			res.json(responses.getNegativeAuthenticationResponse(
+				'User already exists.',
 			));
 		}
 	} else {

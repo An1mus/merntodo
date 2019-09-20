@@ -22,8 +22,19 @@ class Access extends React.Component {
 		this.setState({ submitted: true });
 
 		const { userLogin, userPassword } = this.state;
-		if (userLogin.length > 0 && userLogin && userPassword) {
+		if (userLogin && userPassword) {
 			this.props.login(userLogin, userPassword);
+		}
+	}
+
+	registrate(e) {
+		e.preventDefault();
+
+		this.setState({ submitted: true });
+
+		const { userLogin, userPassword } = this.state;
+		if (userLogin && userPassword) {
+			this.props.registrate(userLogin, userPassword);
 		}
 	}
 
@@ -56,6 +67,7 @@ class Access extends React.Component {
 					/>
 
 					<div className="buttons-Container">
+						<button onClick={(e) => {this.registrate(e)}}>Register</button>
 						<button onClick={(e) => this.login(e)}>login</button>
 					</div>
 				</form>
@@ -72,6 +84,7 @@ function mapState(state) {
 
 const actionCreators = {
 	login: userActions.login,
+	registrate: userActions.registrate,
 	logout: userActions.logout,
 };
 

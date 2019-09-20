@@ -19,6 +19,13 @@ export function userLogin(state = initialState, action) {
 			};
 		case userConstants.LOGIN_FAILURE:
 			return {};
+		case userConstants.REGISTRATION_SUCCESS:
+			return {
+				user: action.user,
+				loggedIn: true,
+			};
+		case userConstants.REGISTRATION_FAILURE:
+			return {};
 		default:
 			return state
 	}
