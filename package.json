@@ -26,7 +26,9 @@
         "redux": "^4.0.4",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
-        "sha256": "^0.2.0"
+        "sha256": "^0.2.0",
+        "axios": "^0.19.0",
+        "history": "^4.10.1"
     },
     "scripts": {
         "start": "concurrently \"npm run client\" \"npm run server\"",
