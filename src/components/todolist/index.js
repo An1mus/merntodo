@@ -2,7 +2,7 @@ import React from 'react';
 import TodoListItem from './todoitem/';
 import './todolist.css'
 import { userActions } from "../../actions/actions";
-import { todoActions } from "../../actions/todoActions";
+import { todoActions } from "../../actions/todo.actions";
 import { connect } from "react-redux";
 
 class TodoList extends React.Component{
@@ -12,22 +12,16 @@ class TodoList extends React.Component{
 		super(props);
 
 		this.state = {
-			newTodo: '',
-			todos: [],
+			newTodo: ''
 		}
 	}
 
 	async componentDidMount() {
 		const user = JSON.parse(localStorage.getItem('user'));
-		const todos = await this.props.loadTodos(user.id);
-
-		this.setState({
-			todos: todos.length ? [...todos] : [],
-		})
-
+		this.props.loadTodos(user.id);
 	}
 
-	addTodo() {
+	async addTodo() {
 		const user = JSON.parse(localStorage.getItem('user'));
 
 		const newTodo = {
@@ -35,14 +29,10 @@ class TodoList extends React.Component{
 			label: this.state.newTodo,
 			checked: false,
 		};
-		this.setState({
-			newTodo: '',
-			todos: [
-				...this.state.todos,
-				newTodo
-			]
-		});
-		this.props.addTodo(user.id, newTodo.label, newTodo.checked)
+
+		this.props.addTodo(user.id, newTodo.label, newTodo.checked);
+
+		this.setState({newTodo: ''});
 	}
 
 	toggleTodo(id) {
@@ -64,13 +54,9 @@ class TodoList extends React.Component{
 		}
 	}
 
+	// TODO: review remove todo to be put on props
 	removeTodo(owner, todoId) {
 		this.props.removeTodo(owner, todoId)
-			.then(() => {
-				this.setState({
-					todos: this.state.todos.filter(el => el._id !== todoId),
-				});
-			});
 	}
 
 	logout() {
@@ -81,7 +67,7 @@ class TodoList extends React.Component{
 		return (
 			<div className={"todoListHolder"}>
 				<button className={"logoutButton"} onClick={() => this.logout()}>Logout</button>
-				<p>Items left: {this.state.todos.filter((el) => {return !el.checked}).length}</p>
+				<p>Items left: {this.props.todos && this.props.todos.filter((el) => {return !el.checked}).length}</p>
 
 				<div className="todoAddition">
 					<input
@@ -99,7 +85,7 @@ class TodoList extends React.Component{
 				</div>
 
 				<ul className={"todoList"}>
-					{this.state.todos.map((todo, index) => {
+					{this.props.todos && this.props.todos.map((todo, index) => {
 						return (
 							<li key={todo._id}>
 								<TodoListItem
@@ -118,15 +104,14 @@ class TodoList extends React.Component{
 }
 
 function mapState(state) {
-	const { loggingIn } = state.userLogin;
-	return { loggingIn };
+	const { todos, newTodo } = state.todoUpdate;
+	return todos ? { todos, newTodo } : null;
 }
 
 const actionCreators = {
 	loadTodos: todoActions.loadTodos,
 	addTodo: todoActions.addTodo,
 	removeTodo: todoActions.removeTodo,
-	login: userActions.login,
 	logout: userActions.logout,
 };
 

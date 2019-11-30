@@ -10,22 +10,17 @@ const todoService = {
 	removeTodo
 };
 
-function addTodo(owner, label, checked) {
+async function addTodo(owner, label, checked) {
 	const date = new Date();
 
-	return fetch(todoAdditionUrl, {
-		method: 'POST',
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			date,
-			owner,
-			label,
-			checked,
-		})
+	const response = await axios.post(todoAdditionUrl, {
+		date,
+		owner,
+		label,
+		checked,
 	});
+
+	return response.data.data;
 }
 
 async function loadTodos(owner) {

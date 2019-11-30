@@ -22,7 +22,7 @@ todosRouter.post('/', async (req, res, next) => {
 		const result = await dbInterface.addTodo(req.body);
 
 		res.json(responses.getPositiveAdditionResponse(
-			result
+			result.ops[0]
 		));
 
 		next();
@@ -53,7 +53,6 @@ todosRouter.get('/:id', async (req, res, next) => {
 });
 
 todosRouter.post('/remove', async (req, res, next) => {
-
 	try {
 		const result = await dbInterface.removeTodo(req.body);
 

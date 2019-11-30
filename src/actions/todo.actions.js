@@ -24,20 +24,20 @@ function addTodo(owner, label, checked) {
 			);
 	};
 
-	function request(todo) { return { type: todoConstants.ADD, todo } }
-	function success(todo) { return { type: todoConstants.ADD_SUCCESS, todo } }
-	function failure(error) { return { type: todoConstants.ADD_FAILURE, error } }
+	function request(todo) { return { type: todoConstants.ADD, payload: todo } }
+	function success(todo) { return { type: todoConstants.ADD_SUCCESS, payload: todo } }
+	function failure(error) { return { type: todoConstants.ADD_FAILURE, payload: error } }
 }
 
 
 function loadTodos(owner) {
 	return async dispatch => {
-		function onSuccess(success) {
-			dispatch({ type: todoConstants.LOAD_SUCCESS, payload: success });
-			return success;
+		function onSuccess(todos) {
+			dispatch({ type: todoConstants.LOAD_SUCCESS, payload: todos });
+			return todos;
 		}
 		function onError(error) {
-			dispatch({ type: todoConstants.LOAD_FAILURE, error });
+			dispatch({ type: todoConstants.LOAD_FAILURE, payload: error });
 			return error;
 		}
 		try {

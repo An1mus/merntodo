@@ -9,24 +9,27 @@ export const userActions = {
 };
 
 function login(username, password) {
-	return dispatch => {
-		dispatch(request({ username }));
-
-		userService.login(username, password)
-			.then(
-				user => {
-					dispatch(success(user));
-					history.push('/');
-				},
-				error => {
-					dispatch(failure(error));
-				}
-			);
-	};
-
-	function request(user) { return { type: userConstants.LOGIN, user } }
-	function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
-	function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+	return async dispatch => {
+		function request(user) {
+			dispatch({ type: userConstants.LOGIN_REQUEST, payload: user });
+		}
+		function success(user) {
+			dispatch({ type: userConstants.LOGIN_SUCCESS, payload: user });
+			history.push('/');
+			return user;
+		}
+		function error(error) {
+			dispatch({ type: userConstants.LOGIN_FAILURE, payload: error });
+			return error;
+		}
+		try {
+			request({username, password});
+			const result = await userService.login(username, password);
+			return success(result);
+		} catch (e) {
+			return error(e);
+		}
+	}
 }
 
 function registrate(username, password) {
@@ -37,7 +40,7 @@ function registrate(username, password) {
 			return success;
 		}
 		function onError(error) {
-			dispatch({ type: userConstants.REGISTRATION_FAILURE, error });
+			dispatch({ type: userConstants.REGISTRATION_FAILURE, payload: error });
 			return error;
 		}
 		try {
