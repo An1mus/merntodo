@@ -1,3 +1,9 @@
+## TODO app with MERN stack
+_The application is implemented as illustration of an end-to-end app_
+
+_Under current development_ 
+
+### To use the source code: 
 ### `git clone https://github.com/An1mus/merntodo.git`
 ### `cd merntodo`
 ### `npm start`
