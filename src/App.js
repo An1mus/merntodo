@@ -8,15 +8,15 @@ import { Access } from "./components/access";
 import { TodoList } from "./components/todolist";
 
 
-export default class App extends React.Component{
-	render() {
-		return (
-			<div className="App">
-				<Router history={history}>
-					<ProtectedRoute exact path="/" component={TodoList} />
-					<Route path="/login" component={Access} />
-				</Router>
-			</div>
-		);
-	}
+const App = () => {
+	return (
+		<div className="App">
+			<Router history={history}>
+				<ProtectedRoute exact path="/" component={TodoList} />
+				<Route path="/login" component={Access} />
+			</Router>
+		</div>
+	);
 }
+
+export default App;
