@@ -17,12 +17,12 @@ class TodoList extends React.Component{
 	}
 
 	async componentDidMount() {
-		const user = JSON.parse(localStorage.getItem('user'));
+		const user = localStorage.getItem('user');
 		this.props.loadTodos(user.id);
 	}
 
 	async addTodo() {
-		const user = JSON.parse(localStorage.getItem('user'));
+		const user = localStorage.getItem('user');
 
 		const newTodo = {
 			id: this.id++,
