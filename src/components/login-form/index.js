@@ -15,6 +15,20 @@ const LoginForm = ({registrate, login}) => {
 		)
 	};
 
+	const handleRegistration = (e) => {
+		e.preventDefault();
+
+		// TODO validation
+		registrate(username, password)
+	};
+
+	const handleLogin = (e) => {
+		e.preventDefault();
+
+		// TODO validation
+		login(username, password)
+	};
+
 	return (
 		<form>
 			<input
@@ -37,14 +51,14 @@ const LoginForm = ({registrate, login}) => {
 
 			<div className="buttons-Container">
 				<button
-					type='button'
-					onClick={() => registrate(username, password)}
+					type='submit'
+					onClick={(e) => handleRegistration(e)}
 				>
 					Register
 				</button>
 				<button
-					type='button'
-					onClick={() => login(username, password)}
+					type='submit'
+					onClick={(e) => handleLogin(e)}
 				>
 					Login
 				</button>
