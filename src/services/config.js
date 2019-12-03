@@ -1,4 +1,4 @@
-export const serverUrl = 'http://localhost:8081/';
+export const serverUrl = 'http://localhost:8080/';
 
 export const accessEndpoint = serverUrl + 'auth';
 export const authEndpoint = accessEndpoint + '/auth';
