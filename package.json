@@ -33,7 +33,7 @@
         "sha256": "^0.2.0"
     },
     "scripts": {
-        "start": "concurrently \"npm run clean-ports\" \"npm run client\" \"npm run server\"",
+        "start": "concurrently \"npm run client\" \"npm run server\"",
         "clean-ports": "concurrently \"killall -9 node\"  \"ps ax\"",
         "client": "react-scripts start",
         "server": "nodemon --exec babel-node server/index.js",

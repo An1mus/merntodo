@@ -37,16 +37,14 @@ const LoginForm = ({registrate, login}) => {
 
 			<div className="buttons-Container">
 				<button onClick={(e) => {
-					e.preventDefault();
 
-					if(username && password) {
+					if(username && password) { // TODO: add vaidation
 						registrate(username, password)
 					}
 				}}>Register</button>
 				<button onClick={(e) => {
-					e.preventDefault();
 
-					if(username && password) {
+					if(username && password) { // TODO: add vaidation
 						login(username, password);
 					}
 				}}>login</button>
