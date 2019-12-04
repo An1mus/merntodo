@@ -11,12 +11,6 @@ class Access extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			userLogin: '',
-			userPassword: '',
-			submitted: false,
-		};
 	}
 
 	logout() {
