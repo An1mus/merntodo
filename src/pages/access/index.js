@@ -13,10 +13,6 @@ class Access extends React.Component {
 		super(props);
 	}
 
-	logout() {
-		this.props.logout();
-	}
-
 	render() {
 		return (
 			<div>
@@ -38,8 +34,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
 	login: userActions.login,
-	registrate: userActions.registrate,
-	logout: userActions.logout,
+	registrate: userActions.registrate
 };
 
 const connectedAccessComponent = connect(mapStateToProps, mapDispatchToProps)(Access);
