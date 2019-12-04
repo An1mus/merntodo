@@ -11,16 +11,6 @@ class Access extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			userLogin: '',
-			userPassword: '',
-			submitted: false,
-		};
-	}
-
-	logout() {
-		this.props.logout();
 	}
 
 	render() {
@@ -37,16 +27,15 @@ class Access extends React.Component {
 
 }
 
-function mapState(state) {
+function mapStateToProps(state) {
 	const { loggingIn } = state.userLogin;
 	return { loggingIn };
 }
 
-const actionCreators = {
+const mapDispatchToProps = {
 	login: userActions.login,
-	registrate: userActions.registrate,
-	logout: userActions.logout,
+	registrate: userActions.registrate
 };
 
-const connectedAccessComponent = connect(mapState, actionCreators)(Access);
+const connectedAccessComponent = connect(mapStateToProps, mapDispatchToProps)(Access);
 export { connectedAccessComponent as Access };
