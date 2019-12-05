@@ -4,7 +4,7 @@ import { history } from './helpers/history';
 
 import './App.css';
 import { ProtectedRoute } from './helpers/protectedRoute';
-import { Access } from "./pages/access";
+import { Access } from "./components/access";
 import { TodoList } from "./components/todolist";
 
 
