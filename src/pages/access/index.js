@@ -7,25 +7,17 @@ import { userActions } from '../../actions/actions';
 
 import LoginForm from '../../components/login-form';
 
-class Access extends React.Component {
+const Access = (props) => {
+	return (
+		<div>
+			<header>
+				<h1>ToDo</h1>
+			</header>
 
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (
-			<div>
-				<header>
-					<h1>ToDo</h1>
-				</header>
-
-				<LoginForm registrate={this.props.registrate} login={this.props.login}/>
-			</div>
-		);
-	}
-
-}
+			<LoginForm registrate={props.registrate} login={props.login}/>
+		</div>
+	);
+};
 
 function mapStateToProps(state) {
 	const { loggingIn } = state.userLogin;
