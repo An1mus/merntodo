@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './access.css';
+import './index.css';
 
 import { userActions } from '../../actions/actions';
 

@@ -36,7 +36,6 @@ const LoginForm = ({registrate, login}) => {
 				onChange={(e) => handleFormInput(e)}
 				placeholder='login'
 				autoComplete='username'
-				required={true}
 			/>
 
 			<input
@@ -46,7 +45,6 @@ const LoginForm = ({registrate, login}) => {
 				onChange={(e) => handleFormInput(e)}
 				placeholder='password'
 				autoComplete='current-password'
-				required={true}
 			/>
 
 			<div className="buttons-Container">
