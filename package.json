@@ -1,58 +1,39 @@
 {
-    "name": "merntodo",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@babel/cli": "^7.1.5",
-        "@babel/core": "^7.1.6",
-        "@babel/node": "^7.6.1",
-        "@babel/preset-env": "^7.6.0",
-        "@babel/register": "^7.0.0",
-        "@bearer/node": "^1.13.4",
-        "ajv": "^6.10.2",
-        "axios": "^0.19.0",
-        "babel-node": "0.0.1-security",
-        "babel-preset-env": "^1.7.0",
-        "concurrently": "^4.1.2",
-        "cors": "^2.8.5",
-        "eslint-config-airbnb-base": "^13.1.0",
-        "eslint-plugin-import": "^2.14.0",
-        "express": "^4.17.1",
-        "history": "^4.10.1",
-        "jsonwebtoken": "^8.5.1",
-        "mongodb": "^3.3.2",
-        "nodemon": "^1.18.7",
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0",
-        "react-redux": "^7.1.1",
-        "react-scripts": "3.1.1",
-        "redux": "^4.0.4",
-        "redux-logger": "^3.0.6",
-        "redux-thunk": "^2.3.0",
-        "sha256": "^0.2.0"
-    },
-    "scripts": {
-        "start": "concurrently \"npm run client\" \"npm run server\"",
-        "clean-ports": "concurrently \"killall -9 node\"  \"ps ax\"",
-        "client": "react-scripts start",
-        "server": "nodemon --exec babel-node server/index.js",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    }
+  "name": "merntodo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
