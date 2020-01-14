@@ -1,4 +1,5 @@
 import React from 'react';
+import AddItemForm from './AddItemForm';
 import ListItem from './ListItem';
 
 const LIST_ITEMS = [
@@ -15,6 +16,7 @@ const LIST_ITEMS = [
 const List = () => {
     return (
         <>
+            <AddItemForm />
             {
                 LIST_ITEMS.length !== 0
                 ? LIST_ITEMS.map(item => <ListItem {...item} />)
