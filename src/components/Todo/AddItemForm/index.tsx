@@ -7,9 +7,14 @@ const FormComponent = styled.form`
 
 const AddItemForm = () => {
     const [itemTitle, setItemTitle] = useState('');
+    const formSubmit = (e: any) => {
+        e.preventDefault();
+
+        setItemTitle('');
+    };
 
     return (
-        <FormComponent>
+        <FormComponent onSubmit={e => formSubmit(e)}>
             <input
                 type="text"
                 placeholder='Item title'

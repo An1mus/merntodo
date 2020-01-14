@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import List from './List';
+import Todo from './Todo';
 
 const App: React.FC = () => {
     return (
         <div>
-            <header></header>
-            <List />
+            <Todo />
         </div>
     );
 };
