@@ -6,6 +6,7 @@ const initialState: any[] = [];
 function todos(state = initialState, action: any) {
     switch (action.type) {
         case TODO_ACTIONS.ADD:
+            console.log([...state, action.payload]);
             return [...state, action.payload];
         case TODO_ACTIONS.REMOVE:
             return [...state.filter(todo => todo.name !== action.payload.name)];

@@ -6,7 +6,7 @@ import { TODO_ACTIONS } from '../types';
  */
 function addTodo(newItem: any){
     return (dispatch: any) => {
-        dispatch(TODO_ACTIONS.ADD, newItem);
+        dispatch({type: TODO_ACTIONS.ADD, payload: newItem});
     }
 }
 
@@ -16,7 +16,7 @@ function addTodo(newItem: any){
  */
 function updateTodo(newItem: any){
     return (dispatch: any) => {
-        dispatch(TODO_ACTIONS.UPDATE, newItem);
+        dispatch({type: TODO_ACTIONS.UPDATE, payload: newItem});
     }
 }
 
@@ -26,7 +26,7 @@ function updateTodo(newItem: any){
  */
 function deleteTodo(newItem: any) {
     return (dispatch: any) => {
-        dispatch(TODO_ACTIONS.REMOVE, newItem);
+        dispatch({type: TODO_ACTIONS.REMOVE, payload: newItem});
     }
 }
 

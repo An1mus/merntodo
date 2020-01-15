@@ -13,12 +13,12 @@ const LIST_ITEMS: any[] = [
 
 ];
 
-const List = () => {
+const List = ({todos = []}: any) => {
     return (
         <>
             {
-                LIST_ITEMS.length !== 0
-                    ? LIST_ITEMS.map(item => <ListItem {...item} />)
+                todos.length !== 0
+                    ? todos.map((item: any, index: number) => <ListItem key={index} name={item} />)
                     : <p>Nothing to do yet...</p>
             }
         </>
