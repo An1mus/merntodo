@@ -5,16 +5,17 @@ const FormComponent = styled.form`
     display: flex;
 `;
 
-const AddItemForm = () => {
+const AddItemForm = ({addTodo}: any) => {
     const [itemTitle, setItemTitle] = useState('');
-    const formSubmit = (e: any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
 
+        addTodo(itemTitle);
         setItemTitle('');
     };
 
     return (
-        <FormComponent onSubmit={e => formSubmit(e)}>
+        <FormComponent onSubmit={e => handleSubmit(e)}>
             <input
                 type="text"
                 placeholder='Item title'

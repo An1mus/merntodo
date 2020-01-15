@@ -1,10 +1,9 @@
 import React from 'react';
 
-const ListItem = ({name, description}: any) => {
+const ListItem = ({name}: any) => {
     return (
         <>
             <p>{name}</p>
-            <p>{description}</p>
         </>
     )
 };
