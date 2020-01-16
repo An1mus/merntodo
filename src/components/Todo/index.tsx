@@ -16,7 +16,7 @@ const Todo = ({addTodo, deleteTodo, updateTodo, todos}: any) => {
     return (
         <ListContainer>
             <AddItemForm addTodo={addTodo}/>
-            <List todos={todos}/>
+            <List todos={todos} onDelete={deleteTodo}/>
         </ListContainer>
     );
 };

@@ -9,7 +9,7 @@ function todos(state = initialState, action: any) {
             console.log([...state, action.payload]);
             return [...state, action.payload];
         case TODO_ACTIONS.REMOVE:
-            return [...state.filter(todo => todo.name !== action.payload.name)];
+            return [...state.filter(todo => todo !== action.payload)];
         case TODO_ACTIONS.UPDATE:
             return [...state.map(todo => {
                 if (todo.id === action.payload.id) return action.payload;
