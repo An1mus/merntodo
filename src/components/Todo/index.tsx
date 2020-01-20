@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import AddItemForm from './AddItemForm';
 import todoActions from '../../redux/actions/todos';
 import List from './List';
+import { TodoItem } from '../../commons/types/todoItem';
 
 const ListContainer = styled.div`
     margin: 0 auto;
@@ -12,7 +13,16 @@ const ListContainer = styled.div`
     width: 80%;
 `;
 
-const Todo = ({addTodo, deleteTodo, updateTodo, todos}: any) => {
+
+//TODO: change newItem to a correspondent type
+interface Props {
+    addTodo: (newItem: any) => void,
+    deleteTodo: (newItem: any) => void,
+    updateTodo: (newItem: any) => void,
+    todos: TodoItem[]
+}
+
+const Todo = ({addTodo, deleteTodo, updateTodo, todos}: Props) => {
     return (
         <ListContainer>
             <AddItemForm addTodo={addTodo}/>
