@@ -1,4 +1,4 @@
-export type TodoType = {
+export type TodoCategory = {
     name: string,
     color: string,
 }

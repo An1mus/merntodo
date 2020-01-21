@@ -14,11 +14,10 @@ const ListContainer = styled.div`
 `;
 
 
-//TODO: change newItem to a correspondent type
 interface Props {
-    addTodo: (newItem: any) => void,
-    deleteTodo: (newItem: any) => void,
-    updateTodo: (newItem: any) => void,
+    addTodo: (newItem: TodoItem) => void,
+    deleteTodo: (newItem: TodoItem) => void,
+    updateTodo: (newItem: TodoItem) => void,
     todos: TodoItem[]
 }
 
