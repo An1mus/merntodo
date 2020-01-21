@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { TodoItem } from '../../../commons/types/todoItem';
+import CATEGORIES from '../../../commons/config/itemCategories';
 
 const FormComponent = styled.form`
     display: flex;
 `;
 
-const AddItemForm = ({addTodo}: any) => {
+const emptyItem: TodoItem = {
+    name: '',
+    description: '',
+    isChecked: false,
+    category: CATEGORIES.General,
+    date: new Date(),
+    endDate: '',
+};
+
+interface Props {
+    addTodo: (item: TodoItem) => void,
+}
+
+const AddItemForm = ({addTodo}: Props) => {
     const [itemTitle, setItemTitle] = useState('');
+
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
-        addTodo(itemTitle);
+        addTodo({...emptyItem, name: itemTitle});
+
         setItemTitle('');
     };
 

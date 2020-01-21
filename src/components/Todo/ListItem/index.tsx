@@ -1,17 +1,19 @@
 import React from 'react';
+import { TodoItem } from '../../../commons/types/todoItem';
 
 interface Props {
-    name: string,
-    description: string,
-    onDelete: (name: string) => void,
+    item: TodoItem,
+    onDelete: (item: TodoItem) => void,
 }
 
-const ListItem = ({name, description, onDelete}: Props) => {
+const ListItem = ({onDelete, item}: Props) => {
+    const {name, description} = item;
+
     return (
         <>
             <p>{name}</p>
             <p>{description}</p>
-            <button onClick={() => onDelete(name)}>Delete</button>
+            <button onClick={() => onDelete(item)}>Delete</button>
         </>
     )
 };

@@ -4,11 +4,10 @@ import { TodoItem } from '../../../commons/types/todoItem';
 
 interface Props {
     todos: TodoItem[],
-    onDelete: (name: string) => void,
+    onDelete: (name: TodoItem) => void,
 }
 
 const List = ({onDelete, todos = []}: Props,) => {
-    const DESCRIPTION_TO_CHANGE = 'Some description'; //TODO: add description
     return (
         <>
             {
@@ -16,8 +15,7 @@ const List = ({onDelete, todos = []}: Props,) => {
                     ? todos.map((item: any, index: number) => (
                             <ListItem
                                 key={index}
-                                name={item}
-                                description={DESCRIPTION_TO_CHANGE}
+                                item={item}
                                 onDelete={onDelete}
                             />
                         ))
