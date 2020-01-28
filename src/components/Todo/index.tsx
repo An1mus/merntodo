@@ -16,7 +16,7 @@ const ListContainer = styled.div`
 
 interface Props {
     addTodo: (newItem: TodoItem) => void,
-    deleteTodo: (newItem: TodoItem) => void,
+    deleteTodo: (name: string) => void,
     updateTodo: (newItem: TodoItem) => void,
     todos: TodoItem[]
 }
@@ -25,7 +25,7 @@ const Todo = ({addTodo, deleteTodo, updateTodo, todos}: Props) => {
     return (
         <ListContainer>
             <AddItemForm addTodo={addTodo}/>
-            <List todos={todos} onDelete={deleteTodo}/>
+            <List todos={todos} onDelete={deleteTodo} updateTodo={updateTodo}/>
         </ListContainer>
     );
 };

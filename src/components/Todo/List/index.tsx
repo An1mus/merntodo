@@ -4,10 +4,11 @@ import { TodoItem } from '../../../commons/types/todoItem';
 
 interface Props {
     todos: TodoItem[],
-    onDelete: (name: TodoItem) => void,
+    onDelete: (name: string) => void,
+    updateTodo: (item: TodoItem) => void,
 }
 
-const List = ({onDelete, todos = []}: Props,) => {
+const List = ({onDelete, updateTodo, todos = []}: Props,) => {
     return (
         <>
             {
@@ -17,6 +18,7 @@ const List = ({onDelete, todos = []}: Props,) => {
                                 key={index}
                                 item={item}
                                 onDelete={onDelete}
+                                updateTodo={updateTodo}
                             />
                         ))
                     : <p>Nothing to do yet...</p>
