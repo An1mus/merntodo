@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TodoItem } from '../../../commons/types/todoItem';
 
 interface Props {
     item: TodoItem,
-    onDelete: (item: TodoItem) => void,
+    onDelete: (item: string) => void,
+    updateTodo: (item: TodoItem) => void
 }
 
-const ListItem = ({onDelete, item}: Props) => {
-    const {name, description, category, isChecked, date, endDate} = item;
+const ListItem = ({onDelete, updateTodo, item}: Props) => {
+    const [todoItem, setTodoItem] = useState(item);
+    const {name, description, category, isChecked, date, endDate} = todoItem;
+
+    useEffect(() => {
+        updateTodo(todoItem);
+        }, [todoItem]);
+
+    const checkItem = () => {
+        setTodoItem({...todoItem, isChecked: !isChecked})
+    };
 
     return (
         <>
@@ -17,7 +27,8 @@ const ListItem = ({onDelete, item}: Props) => {
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
             <p>Date: {new Date(date).toISOString()}</p>
             <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>
-            <button onClick={() => onDelete(item)}>Delete</button>
+            <input type='checkbox' defaultChecked={isChecked} onChange={() => checkItem()} />
+            <button onClick={() => onDelete(item.name)}>Delete</button>
         </>
     )
 };
