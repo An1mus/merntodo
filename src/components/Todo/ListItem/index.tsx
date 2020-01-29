@@ -9,7 +9,7 @@ interface Props {
 
 const ListItem = ({onDelete, updateTodo, item}: Props) => {
     const [todoItem, setTodoItem] = useState(item);
-    const {name, description, category, isChecked, date, endDate} = todoItem;
+    const {id, name, description, category, isChecked, date, endDate} = todoItem;
 
     useEffect(() => {
         updateTodo(todoItem);
@@ -21,6 +21,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
 
     return (
         <>
+            <p>{id}</p>
             <p>{name}</p>
             <p>Description: {description}</p>
             <p>Category: {category.name}</p>
