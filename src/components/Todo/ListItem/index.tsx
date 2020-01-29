@@ -3,13 +3,13 @@ import { TodoItem } from '../../../commons/types/todoItem';
 
 interface Props {
     item: TodoItem,
-    onDelete: (item: string) => void,
+    onDelete: (id: string) => void,
     updateTodo: (item: TodoItem) => void
 }
 
 const ListItem = ({onDelete, updateTodo, item}: Props) => {
     const [todoItem, setTodoItem] = useState(item);
-    const {name, description, category, isChecked, date, endDate} = todoItem;
+    const {id, name, description, category, isChecked, date, endDate} = todoItem;
 
     useEffect(() => {
         updateTodo(todoItem);
@@ -21,6 +21,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
 
     return (
         <>
+            <p>{id}</p>
             <p>{name}</p>
             <p>Description: {description}</p>
             <p>Category: {category.name}</p>
@@ -28,7 +29,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
             <p>Date: {new Date(date).toISOString()}</p>
             <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>
             <input type='checkbox' defaultChecked={isChecked} onChange={() => checkItem()} />
-            <button onClick={() => onDelete(item.name)}>Delete</button>
+            <button onClick={() => onDelete(item.id)}>Delete</button>
         </>
     )
 };

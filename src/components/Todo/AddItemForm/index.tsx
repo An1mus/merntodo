@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import {createUniqueId} from '../../../commons/utilities';
 import { TodoItem } from '../../../commons/types/todoItem';
 import CATEGORIES from '../../../commons/config/itemCategories';
 
@@ -8,6 +9,7 @@ const FormComponent = styled.form`
 `;
 
 const emptyItem: TodoItem = {
+    id: '',
     name: '',
     description: '',
     isChecked: false,
@@ -26,7 +28,7 @@ const AddItemForm = ({addTodo}: Props) => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
-        addTodo({...emptyItem, name: itemTitle});
+        addTodo({ ...emptyItem, id: createUniqueId(), name: itemTitle});
 
         setItemTitle('');
     };

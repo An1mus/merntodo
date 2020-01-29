@@ -16,7 +16,7 @@ const ListContainer = styled.div`
 
 interface Props {
     addTodo: (newItem: TodoItem) => void,
-    deleteTodo: (name: string) => void,
+    deleteTodo: (id: string) => void,
     updateTodo: (newItem: TodoItem) => void,
     todos: TodoItem[]
 }
