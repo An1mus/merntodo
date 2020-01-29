@@ -1,0 +1,11 @@
+.u-flex{
+    display: flex;
+}
+
+.u-flex-row {
+    flex-direction: row;
+}
+
+.u-flex-column {
+    flex-direction: column;
+}
