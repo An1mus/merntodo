@@ -4,7 +4,7 @@ import { TodoItem } from '../../../commons/types/todoItem';
 
 interface Props {
     todos: TodoItem[],
-    onDelete: (name: string) => void,
+    onDelete: (id: string) => void,
     updateTodo: (item: TodoItem) => void,
 }
 
