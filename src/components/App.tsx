@@ -5,6 +5,7 @@ import Header from './common/Header/';
 import Nav from './common/Nav/'
 import Todo from './Todo';
 import Progress from './Progress';
+import Categories from './Categories';
 
 const App: React.FC = () => {
     return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
                     <Switch>
                         <Route exact path={'/'} component={Todo} />
                         <Route path={'/progress'} component={Progress}/>
+                        <Route path={'/categories'} component={Categories}/>
                     </Switch>
                 </div>
             </div>
