@@ -4,6 +4,7 @@ import {HashRouter, Switch, Route} from 'react-router-dom';
 import Header from './common/Header/';
 import Nav from './common/Nav/'
 import Todo from './Todo';
+import Progress from './Progress';
 
 const App: React.FC = () => {
     return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
                     <Header />
                     <Switch>
                         <Route exact path={'/'} component={Todo} />
+                        <Route path={'/progress'} component={Progress}/>
                     </Switch>
                 </div>
             </div>
