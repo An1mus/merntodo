@@ -4,5 +4,5 @@ export type NavLink = {
     id: number,
     title: string,
     to: string,
-    icon: React.FunctionComponent;
+    icon: React.FunctionComponent | null,
 };
