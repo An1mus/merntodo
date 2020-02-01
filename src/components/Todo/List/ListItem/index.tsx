@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TodoItem } from '../../../commons/types/todoItem';
+import { TodoItem } from '../../../../commons/types/todoItem';
 
 interface Props {
     item: TodoItem,
@@ -21,8 +21,8 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
 
     return (
         <>
-            <p>{id}</p>
-            <p>{name}</p>
+            <p>ID: {id}</p>
+            <p>Name: {name}</p>
             <p>Description: {description}</p>
             <p>Category: {category.name}</p>
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
