@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TodoItem } from '../../../commons/types/todoItem';
+import { TodoItem } from '../../../../commons/types/todoItem';
 
 interface Props {
     item: TodoItem,
@@ -19,11 +19,20 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
         setTodoItem({...todoItem, isChecked: !isChecked})
     };
 
+    const updateDescription = (text) => {
+        console.log(text);
+        setTodoItem({...todoItem, description: text});
+    };
+
     return (
         <>
-            <p>{id}</p>
-            <p>{name}</p>
-            <p>Description: {description}</p>
+            <p>ID: {id}</p>
+            <p>Name: {name}</p>
+            <textarea
+                placeholder={'Item description'}
+                onChange={(e) => updateDescription(e.target.value)}
+                value={description}
+            />
             <p>Category: {category.name}</p>
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
             <p>Date: {new Date(date).toISOString()}</p>
