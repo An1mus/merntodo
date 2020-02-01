@@ -1,14 +1,14 @@
 import React from 'react';
-import ListItem from '../ListItem';
+import ListItem from './ListItem';
 import { TodoItem } from '../../../commons/types/todoItem';
 
 interface Props {
     todos: TodoItem[],
-    onDelete: (name: string) => void,
+    onDelete: (id: string) => void,
+    updateTodo: (item: TodoItem) => void,
 }
 
-const List = ({onDelete, todos = []}: Props,) => {
-    const DESCRIPTION_TO_CHANGE = 'Some description'; //TODO: add description
+const List = ({onDelete, updateTodo, todos = []}: Props,) => {
     return (
         <>
             {
@@ -16,9 +16,9 @@ const List = ({onDelete, todos = []}: Props,) => {
                     ? todos.map((item: any, index: number) => (
                             <ListItem
                                 key={index}
-                                name={item}
-                                description={DESCRIPTION_TO_CHANGE}
+                                item={item}
                                 onDelete={onDelete}
+                                updateTodo={updateTodo}
                             />
                         ))
                     : <p>Nothing to do yet...</p>

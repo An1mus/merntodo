@@ -22,11 +22,11 @@ function updateTodo(newItem: any){
 
 /**
  * Remove item from the list
- * @param newItem
+ * @param name
  */
-function deleteTodo(newItem: any) {
+function deleteTodo(name: string) {
     return (dispatch: any) => {
-        dispatch({type: TODO_ACTIONS.REMOVE, payload: newItem});
+        dispatch({type: TODO_ACTIONS.REMOVE, payload: name});
     }
 }
 

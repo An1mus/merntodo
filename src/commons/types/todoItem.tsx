@@ -1,10 +1,11 @@
-import { TodoType } from './todoType';
+import { TodoCategory } from './todoCategory';
 
 export type TodoItem = {
+    id: string,
     name: string,
     isChecked: boolean,
-    type: TodoType,
+    category: TodoCategory,
     description: string,
     date: Date,
-    endDate: Date | undefined,
+    endDate: Date | string,
 }
