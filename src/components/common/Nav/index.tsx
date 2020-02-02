@@ -4,7 +4,12 @@ import NAV_LINKS from './nav.config';
 import styled from 'styled-components';
 
 const NavContainer = styled.div`
-
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem;
 `;
 
 const Nav: React.FC = () => {
