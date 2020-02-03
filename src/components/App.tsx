@@ -15,6 +15,7 @@ const AppContainer = styled.div`
 `;
 
 const AppContent = styled.div`
+    box-sizing: border-box;
     width: calc(100% - 10rem);
 `;
 
