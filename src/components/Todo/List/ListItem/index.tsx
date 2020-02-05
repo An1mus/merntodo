@@ -26,7 +26,6 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
 
     return (
         <>
-            <p>ID: {id}</p>
             <p>Name: {name}</p>
             <textarea
                 placeholder={'Item description'}
