@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { TodoItem } from '../../../../commons/types/todoItem';
 
 interface Props {
@@ -7,9 +8,11 @@ interface Props {
     updateTodo: (item: TodoItem) => void
 }
 
+const ListItemContainer = styled.div``;
+
 const ListItem = ({onDelete, updateTodo, item}: Props) => {
     const [todoItem, setTodoItem] = useState(item);
-    const {id, name, description, category, isChecked, date, endDate} = todoItem;
+    const {name, description, category, isChecked, date, endDate} = todoItem;
 
     useEffect(() => {
         updateTodo(todoItem);
@@ -25,7 +28,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
     };
 
     return (
-        <>
+        <ListItemContainer>
             <p>Name: {name}</p>
             <textarea
                 placeholder={'Item description'}
@@ -38,7 +41,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
             <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>
             <input type='checkbox' defaultChecked={isChecked} onChange={() => checkItem()} />
             <button onClick={() => onDelete(item.id)}>Delete</button>
-        </>
+        </ListItemContainer>
     )
 };
 
