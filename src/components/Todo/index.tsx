@@ -25,6 +25,9 @@ const Todo = ({addTodo, deleteTodo, updateTodo, todos}: Props) => {
     return (
         <ListContainer>
             <AddItemForm addTodo={addTodo}/>
+            <h2>
+                Your To-Dos
+            </h2>
             <List todos={todos} onDelete={deleteTodo} updateTodo={updateTodo}/>
         </ListContainer>
     );
