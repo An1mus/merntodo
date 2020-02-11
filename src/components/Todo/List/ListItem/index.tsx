@@ -26,11 +26,6 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
         setTodoItem({...todoItem, isChecked: !isChecked})
     };
 
-    const updateDescription = (text) => {
-        console.log(text);
-        setTodoItem({...todoItem, description: text});
-    };
-
     return (
         <ListItemContainer>
             <p>{priority}</p>
