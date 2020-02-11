@@ -10,6 +10,7 @@ const FormComponent = styled.form`
 
 const emptyItem: TodoItem = {
     id: '',
+    priority: 'Regular',
     name: '',
     description: '',
     isChecked: false,
