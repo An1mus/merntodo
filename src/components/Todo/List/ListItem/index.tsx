@@ -10,6 +10,8 @@ interface Props {
 
 const ListItemContainer = styled.div`
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 `;
 
 const ListItem = ({onDelete, updateTodo, item}: Props) => {
@@ -31,16 +33,16 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
 
     return (
         <ListItemContainer>
-            <p>Name: {name}</p>
+            <p>{name}</p>
             {/*<textarea
                 placeholder={'Item description'}
                 onChange={(e) => updateDescription(e.target.value)}
                 value={description}
-            />*/}
+            />
             <p>Category: {category.name}</p>
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
             <p>Date: {new Date(date).toISOString()}</p>
-            <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>
+            <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>*/}
             <input type='checkbox' defaultChecked={isChecked} onChange={() => checkItem()} />
             <button onClick={() => onDelete(item.id)}>Delete</button>
         </ListItemContainer>
