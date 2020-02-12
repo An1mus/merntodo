@@ -10,11 +10,13 @@ interface Props {
 
 const ListItemContainer = styled.div`
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 `;
 
 const ListItem = ({onDelete, updateTodo, item}: Props) => {
     const [todoItem, setTodoItem] = useState(item);
-    const {name, description, category, isChecked, date, endDate} = todoItem;
+    const {priority, name, category, isChecked, date, endDate} = todoItem;
 
     useEffect(() => {
         updateTodo(todoItem);
@@ -24,23 +26,16 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
         setTodoItem({...todoItem, isChecked: !isChecked})
     };
 
-    const updateDescription = (text) => {
-        console.log(text);
-        setTodoItem({...todoItem, description: text});
-    };
-
     return (
         <ListItemContainer>
-            <p>Name: {name}</p>
-            {/*<textarea
-                placeholder={'Item description'}
-                onChange={(e) => updateDescription(e.target.value)}
-                value={description}
-            />*/}
-            <p>Category: {category.name}</p>
+            <p>{priority}</p>
+            <p>{name}</p>
+            <p>{category.name}</p>
+            {/*
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
             <p>Date: {new Date(date).toISOString()}</p>
-            <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>
+            <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>*/}
+            {endDate ? <p>{endDate}</p> : <p>One Time</p>}
             <input type='checkbox' defaultChecked={isChecked} onChange={() => checkItem()} />
             <button onClick={() => onDelete(item.id)}>Delete</button>
         </ListItemContainer>

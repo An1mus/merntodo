@@ -16,6 +16,7 @@ const AppContainer = styled.div`
 
 const AppContent = styled.div`
     box-sizing: border-box;
+    font-family: 'Proxima Nova', sans-serif;
     width: calc(100% - 10rem);
 `;
 
