@@ -1,5 +1,6 @@
 #A todo APP that utilises browser storage
 Whatever you have in your browser will stay there until you've cleared it 
+All you need ToDo is in your browser with the best UX possible
 
 ## Built With
 * [React](https://github.com/facebook/react/) - A framework to rule them all 💍
