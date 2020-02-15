@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Critical Pr</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ToDoList_Dashboard" transform="translate(-312.000000, -403.000000)">
+            <g id="Your-To-do's" transform="translate(265.000000, 275.000000)">
+                <g id="Task_1" transform="translate(32.000000, 112.000000)">
+                    <g id="Critical-Pr" transform="translate(15.000000, 16.000000)">
+                        <rect id="Rectangle" class="iconFill" opacity="0.100000001" x="0" y="0" width="25" height="25" rx="8"></rect>
+                        <rect id="Rectangle-Copy-21" class="iconStroke"  stroke-width="0.5" x="7.50806452" y="7.50806452" width="9.98387097" height="9.98387097" rx="4"></rect>
+                        <circle id="Oval" class="iconFill"  cx="15.9274194" cy="8.66935484" r="2.21774194"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
