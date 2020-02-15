@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { TodoItem } from '../../../../commons/types/todoItem';
+import FilterIcon from '../../../common/FilterIcon';
+import { Priority } from '../../../../commons/types/Priority';
 
 interface Props {
     item: TodoItem,
@@ -28,7 +30,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
 
     return (
         <ListItemContainer>
-            <p>{priority}</p>
+            <FilterIcon priority={priority}/>
             <p>{name}</p>
             <p>{category.name}</p>
             {/*
