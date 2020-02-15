@@ -5,7 +5,13 @@ import styled from 'styled-components';
 
 const IconContainer = styled.div`
     --main-color:${props => props.color};
+    height: 2rem;
+    width: 2rem;
     
+    svg {
+        height: 100%;
+        width: 100%;
+    }
     .iconFill {
         fill: var(--main-color);
     }

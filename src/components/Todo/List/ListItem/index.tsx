@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { TodoItem } from '../../../../commons/types/todoItem';
 import FilterIcon from '../../../common/FilterIcon';
-import { Priority } from '../../../../commons/types/Priority';
 
 interface Props {
     item: TodoItem,
@@ -12,8 +11,11 @@ interface Props {
 
 const ListItemContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    align-items: center;
     width: 100%;
+    
+    
 `;
 
 const ListItem = ({onDelete, updateTodo, item}: Props) => {
@@ -31,7 +33,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
     return (
         <ListItemContainer>
             <FilterIcon priority={priority}/>
-            <p>{name}</p>
+            <p className={'itemTitle'}>{name}</p>
             <p>{category.name}</p>
             {/*
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
