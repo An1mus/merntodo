@@ -13,9 +13,9 @@ const List = ({onDelete, updateTodo, todos = []}: Props,) => {
         <>
             {
                 todos.length !== 0
-                    ? todos.map((item: any, index: number) => (
+                    ? todos.map((item: any) => (
                             <ListItem
-                                key={index}
+                                key={item.id}
                                 item={item}
                                 onDelete={onDelete}
                                 updateTodo={updateTodo}
