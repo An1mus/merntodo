@@ -1,8 +1,8 @@
 import React from 'react';
 
-export type NavLink = {
+export type NavLinkType = {
     id: number,
     title: string,
     to: string,
-    icon: React.FunctionComponent | null,
+    Icon: React.FunctionComponent | null,
 };

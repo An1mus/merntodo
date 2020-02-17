@@ -1,22 +1,32 @@
-import { NavLink } from '../../../commons/types/navLink';
+import { NavLinkType } from '../../../commons/types/navLink';
+import {ReactComponent as DashboardIcon} from '../../../assets/icons/Dahsboard_icon.svg';
+import {ReactComponent as CategoryIcon} from '../../../assets/icons/Category_icon.svg';
+import {ReactComponent as FiltersIcon} from '../../../assets/icons/Filters_icon.svg';
+import {ReactComponent as KarmaIcon} from '../../../assets/icons/Karma_icon.svg';
 
-const NAV_LINKS: NavLink[] = [{
+const NAV_LINKS: NavLinkType[] = [{
         id: 0,
         title: 'Dashboard',
         to: '/',
-        icon: null,
+        Icon: DashboardIcon,
     },
     {
         id: 1,
-        title: 'Progress',
-        to: '/progress',
-        icon: null,
+        title: 'Category',
+        to: '/category',
+        Icon: CategoryIcon,
     },
     {
         id: 2,
-        title: 'Categories',
-        to: '/categories',
-        icon: null,
+        title: 'Karma',
+        to: '/karma',
+        Icon: KarmaIcon,
+    },
+    {
+        id: 3,
+        title: 'Filters',
+        to: '/filters',
+        Icon: FiltersIcon,
     }
 ];
 
