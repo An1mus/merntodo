@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {createUniqueId} from '../../../commons/utilities';
+import { createUniqueId } from '../../../commons/utilities';
 import { TodoItem } from '../../../commons/types/todoItem';
 import CATEGORIES from '../../../commons/config/itemCategories';
+import { Priority } from '../../../commons/types/Priority';
 
 const FormComponent = styled.form`
     display: flex;
@@ -10,7 +11,7 @@ const FormComponent = styled.form`
 
 const emptyItem: TodoItem = {
     id: '',
-    priority: 'Regular',
+    priority: Priority.Low,
     name: '',
     description: '',
     isChecked: false,
