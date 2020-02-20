@@ -26,10 +26,10 @@ interface FilterIconProps {
 
 const FilterIcon: React.FC<FilterIconProps> = ({priority}) => {
     const colors = {
-        [Priority.Critical]: '#F14146',
-        [Priority.High]: '#F35D2C',
-        [Priority.Medium]: '#4344E4',
-        [Priority.Low]: '#41F1C6',
+        'Critical': '#F14146',
+        'High': '#F35D2C',
+        'Medium': '#4344E4',
+        'Low': '#41F1C6',
     };
     return (
         <IconContainer color={colors[priority]}>
