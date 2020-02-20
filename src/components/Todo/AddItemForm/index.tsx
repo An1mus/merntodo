@@ -26,17 +26,24 @@ interface Props {
 
 const AddItemForm = ({addTodo}: Props) => {
     const [itemTitle, setItemTitle] = useState('');
+    const [itemPriority, setItemPriority] = useState('0');
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
-        addTodo({ ...emptyItem, id: createUniqueId(), name: itemTitle});
+        addTodo({ ...emptyItem, id: createUniqueId(), name: itemTitle, priority: Priority[itemPriority]});
 
         setItemTitle('');
     };
 
     return (
         <FormComponent onSubmit={e => handleSubmit(e)}>
+            <select value={itemPriority} onChange={e => setItemPriority(e.target.value)}>
+                <option value={'0'}>Low</option>
+                <option value={'1'}>Medium</option>
+                <option value={'2'}>High</option>
+                <option value={'3'}>Critical</option>
+            </select>
             <input
                 type="text"
                 placeholder='Item title'
