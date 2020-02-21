@@ -4,7 +4,7 @@ import {HashRouter, Switch, Route} from 'react-router-dom';
 import Header from './common/Header/';
 import Nav from './common/Nav/'
 import Todo from './Todo';
-import Progress from './Progress';
+import Karma from './Karma';
 import Categories from './Categories';
 import FallBackPage from './404';
 import './App.css';
@@ -29,7 +29,7 @@ const App: React.FC = () => {
                     <Header />
                     <Switch>
                         <Route exact path={'/'} component={Todo} />
-                        <Route path={'/progress'} component={Progress}/>
+                        <Route path={'/karma'} component={Karma}/>
                         <Route path={'/categories'} component={Categories}/>
                         <Route path={'*'} component={FallBackPage}/>
                     </Switch>

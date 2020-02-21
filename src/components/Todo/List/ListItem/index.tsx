@@ -46,7 +46,7 @@ const ListItemContainer = styled.div`
 
 const ListItem = ({onDelete, updateTodo, item}: Props) => {
     const [todoItem, setTodoItem] = useState(item);
-    const {priority, name, category, isChecked, date, endDate} = todoItem;
+    const {priority, name, category, isChecked, endDate} = todoItem;
 
     useEffect(() => {
         updateTodo(todoItem);
