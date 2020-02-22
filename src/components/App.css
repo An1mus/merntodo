@@ -1,4 +1,9 @@
-.u-flex{
+:root {
+    --main-idle-icon-color: #CFD3E6;
+    --main-highlight-color: #314EFF;
+}
+
+.u-flex {
     display: flex;
 }
 
