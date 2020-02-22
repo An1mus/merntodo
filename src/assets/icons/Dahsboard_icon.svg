@@ -7,9 +7,9 @@
             <g id="Sidebar">
                 <g id="Dashboard" transform="translate(38.000000, 153.000000)">
                     <g id="Dahsboard_icon" transform="translate(0.000000, 1.000000)">
-                        <rect id="Rectangle" fill="#CFD3E6" x="5" y="5" width="6" height="1.5" rx="0.75"></rect>
-                        <rect id="Rectangle-Copy-5" fill="#CFD3E6" x="5" y="10" width="6" height="1.5" rx="0.75"></rect>
-                        <rect id="Rectangle" stroke="#CFD3E6" x="0.5" y="0.5" width="15" height="15" rx="4"></rect>
+                        <rect id="Rectangle" class="iconFill" x="5" y="5" width="6" height="1.5" rx="0.75"></rect>
+                        <rect id="Rectangle-Copy-5" class="iconFill" x="5" y="10" width="6" height="1.5" rx="0.75"></rect>
+                        <rect id="Rectangle" class="iconStroke" x="0.5" y="0.5" width="15" height="15" rx="4"></rect>
                     </g>
                 </g>
             </g>
