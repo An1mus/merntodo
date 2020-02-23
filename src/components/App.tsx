@@ -17,7 +17,12 @@ const AppContainer = styled.div`
 const AppContent = styled.div`
     box-sizing: border-box;
     font-family: 'Proxima Nova', sans-serif;
-    width: calc(100% - 10rem);
+    padding: 0 2.5rem;
+    width: 100%;
+    
+    @media (min-width:980px) {
+        width: calc(100% - 14rem);
+    }
 `;
 
 const App: React.FC = () => {

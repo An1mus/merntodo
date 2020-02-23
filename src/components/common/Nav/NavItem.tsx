@@ -6,6 +6,7 @@ const NavItemContainer = styled.div`
     align-items: center;
     cursor: pointer;
     display: flex;
+    margin-bottom: 0.5rem;
     position: relative;
     width: 100%;
     
@@ -36,7 +37,7 @@ const NavItemContainer = styled.div`
         align-items: center;
         justify-content: space-around;
         margin-right: 1rem;
-        margin-left: 2rem;
+        margin-left: 2.2rem;
     }
     
     svg {
