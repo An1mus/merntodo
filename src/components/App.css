@@ -1,4 +1,24 @@
-.u-flex{
+:root {
+    --main-background-color: #F5F5FC;
+
+    --main-highlight-color: #314EFF;
+
+    --main-idle-text-color: #CFD3E6;
+    --main-highlight-text-color: #314EFF;
+    --main-text-color: #2C2E3F;
+
+
+    --main-idle-icon-color: #CFD3E6;
+    --main-highlight-icon-color: #314EFF;
+
+    --nav-active-link-background: rgba(49, 78, 255, 0.07);
+}
+
+html {
+    background-color: var(--main-background-color);
+}
+
+.u-flex {
     display: flex;
 }
 

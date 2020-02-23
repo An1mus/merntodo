@@ -12,8 +12,8 @@ const NAV_LINKS: NavLinkType[] = [{
     },
     {
         id: 1,
-        title: 'Category',
-        to: '/category',
+        title: 'Categories',
+        to: '/categories',
         Icon: CategoryIcon,
     },
     {
