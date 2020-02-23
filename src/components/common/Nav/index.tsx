@@ -21,6 +21,11 @@ const NavContainer = styled.div`
     position: fixed;
     top: 0;
     width: 14rem;
+    transform: translate(0, -100%);
+    
+    @media (min-width:980px) {
+        transform: translate(0, 0);
+    }
 `;
 
 
