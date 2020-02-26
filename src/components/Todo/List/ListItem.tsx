@@ -60,7 +60,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
         <ListItemContainer>
             <FilterIcon priority={priority}/>
             <p className={'itemTitle'}>{name}</p>
-            <CategoryLabel name={category?.name || 'Common'} color={"#41F1C6"}/>
+            <CategoryLabel name={category.name} color={category.color}/>
             {/*
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
             <p>Date: {new Date(date).toISOString()}</p>
