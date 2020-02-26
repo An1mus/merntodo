@@ -18,6 +18,10 @@ export const CATEGORIES = {
     Educating: {
         name: 'Educating',
         color: '#f0c7ff'
+    },
+    Work: {
+        name: 'Work',
+        color: '#ffacab'
     }
 };
 
