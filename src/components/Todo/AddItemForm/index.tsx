@@ -50,6 +50,8 @@ const AddItemForm = ({addTodo}: Props) => {
                 <option value={CATEGORIES.Gym.name}>Gym</option>
                 <option value={CATEGORIES.Codding.name}>Codding</option>
                 <option value={CATEGORIES.Chilling.name}>Chilling</option>
+                <option value={CATEGORIES.Educating.name}>Educating</option>
+                <option value={CATEGORIES.Work.name}>Work</option>
             </select>
             <select value={itemPriority} onChange={e => setItemPriority(e.target.value)}>
                 <option value={'0'}>Low</option>
