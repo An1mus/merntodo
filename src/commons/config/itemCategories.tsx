@@ -1,7 +1,7 @@
 export const CATEGORIES = {
     General: {
-        name: 'Common',
-        color: '#fff9bd',
+        name: 'General',
+        color: '#91f0c2',
     },
     Gym: {
         name: 'Gym',
@@ -13,15 +13,15 @@ export const CATEGORIES = {
     },
     Chilling: {
         name: 'Chilling',
-        color: '#91f0c2'
+        color: '#fff9bd',
     },
     Educating: {
         name: 'Educating',
-        color: '#f0c7ff'
+        color: '#f0c7ff',
     },
     Work: {
         name: 'Work',
-        color: '#ffacab'
+        color: '#ffacab',
     }
 };
 
