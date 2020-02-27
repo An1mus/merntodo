@@ -2,14 +2,18 @@ import React from 'react';
 import NAV_LINKS from './nav.config';
 import styled from 'styled-components';
 import NavItem from './NavItem';
+import logo from '../../../assets/logo.svg';
 
 const LogoContainer = styled.div`
-    margin: 2rem auto 6rem 2.15rem;
+    box-sizing: border-box;
+    margin: 2rem auto 6rem auto;
+    pointer-events: none;
     display: flex;
-    width: 100%;    
+    width: 10rem;    
     
-    p {
-        border: 1px solid red; 
+    img {
+        position: relative;
+        width: 100%;
     }
 `;
 
@@ -43,7 +47,7 @@ const Nav: React.FC<NavProps> = ({isNavOpen}) => {
             className={'u-flex u-flex-column' + (isNavOpen ? ' shown' : '')}
         >
             <LogoContainer>
-                <p>Todo logo placeholder</p>
+                <img src={logo} alt="Logo" />
             </LogoContainer>
 
             <div>
