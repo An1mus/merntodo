@@ -6,43 +6,45 @@ const NavItemContainer = styled.div`
     align-items: center;
     cursor: pointer;
     display: flex;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     position: relative;
-    width: 100%;
-    
-    &:before {
-        background: var(--main-highlight-color);
-        border-top-right-radius: 2rem;
-        border-bottom-right-radius: 2rem;
-        content: '';
-        height: 100%;
-        position: absolute;
-        transition: all .3s;
-        width: 0rem;
-    }
+    width: auto;
     
     &.active {
         background: var(--nav-active-link-background);
     }
     
-    &.active:before {
+    &:before {
+        background: var(--main-highlight-color);
+        border-top-right-radius: 2rem;
+        border-top-left-radius: 2rem;
+        content: '';
+        height: 0;
+        position: absolute;
+        bottom: 0;
         transition: all .3s;
-        width: 0.2rem;
+        width: 100%;
     }
     
+    &.active:before {
+        transition: all .3s;
+        height: 0.2rem;
+    }
+    
+    
     .iconContainer {
-        height: 1.2rem;
-        width: 1.2rem;
+        height: 4rem;
+        width: 4.5rem;
         display: flex;
         align-items: center;
         justify-content: space-around;
-        margin-right: 1rem;
-        margin-left: 2.2rem;
+        margin-right: 0;
+        margin-left: 0;
     }
     
     svg {
-        height: 100%;
-        width: 100%;
+        height: 37%;
+        width: 37%;
     }
     
     .iconStroke,
@@ -79,6 +81,50 @@ const NavItemContainer = styled.div`
     &.active a {
         color: var(--main-text-color);
     }
+    
+    .linkText {
+        display: none;
+    }
+    
+    @media(min-width: 980px) {
+        margin-bottom: 0.5rem;
+        width: 100%;
+        
+        &:not(:last-child) {
+            margin-right: 0;
+        }
+        
+        &:before {
+            border-top-left-radius: 0rem;
+            border-bottom-right-radius: 2rem;
+            height: 100%;
+            width: 0rem;
+        }
+    
+        &.active:before {
+            height: 100%;
+            width: 0.2rem;
+        }
+    
+        .iconContainer {
+            height: 1.2rem;
+            width: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-right: 1rem;
+            margin-left: 2.2rem;
+        }
+        
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    
+        .linkText {
+            display: initial;
+        }
+    }
 `;
 
 const NavItem = withRouter(({to, title, Icon, location}) => {
@@ -88,7 +134,7 @@ const NavItem = withRouter(({to, title, Icon, location}) => {
             <div className="iconContainer">
                 {Icon && <Icon/>}
             </div>
-            <NavLink to={to}>{title}</NavLink>
+            <NavLink className={'linkText'} to={to}>{title}</NavLink>
         </NavItemContainer>
     )
 });

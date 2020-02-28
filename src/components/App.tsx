@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {HashRouter, Switch, Route} from 'react-router-dom';
 import Header from './common/Header/';
@@ -26,14 +26,12 @@ const AppContent = styled.div`
 `;
 
 const App: React.FC = () => {
-    const [isNavOpen, setIsNavOpen] = useState(false);
-
     return (
         <HashRouter>
             <AppContainer className={'u-flex u-flex-row'}>
-                <Nav isNavOpen={isNavOpen}/>
+                <Nav/>
                 <AppContent className={'u-flex u-flex-column'}>
-                    <Header onMenuClick={() => setIsNavOpen(!isNavOpen)}/>
+                    <Header/>
                     <Switch>
                         <Route exact path={'/'} component={Todo} />
                         <Route path={'/karma'} component={Karma}/>
