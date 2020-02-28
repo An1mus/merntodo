@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/merntodo/static/css/main.a59a6c39.chunk.css",
-    "main.js": "/merntodo/static/js/main.8b6e5415.chunk.js",
-    "main.js.map": "/merntodo/static/js/main.8b6e5415.chunk.js.map",
+    "main.js": "/merntodo/static/js/main.3d587ef5.chunk.js",
+    "main.js.map": "/merntodo/static/js/main.3d587ef5.chunk.js.map",
     "runtime-main.js": "/merntodo/static/js/runtime-main.b9e16512.js",
     "runtime-main.js.map": "/merntodo/static/js/runtime-main.b9e16512.js.map",
     "static/js/2.bd0621af.chunk.js": "/merntodo/static/js/2.bd0621af.chunk.js",
     "static/js/2.bd0621af.chunk.js.map": "/merntodo/static/js/2.bd0621af.chunk.js.map",
     "index.html": "/merntodo/index.html",
-    "precache-manifest.57d7b6f5a65d81d7db22d41f1e4d3181.js": "/merntodo/precache-manifest.57d7b6f5a65d81d7db22d41f1e4d3181.js",
+    "precache-manifest.8cce936e0284780fd38a547e707f0abc.js": "/merntodo/precache-manifest.8cce936e0284780fd38a547e707f0abc.js",
     "service-worker.js": "/merntodo/service-worker.js",
     "static/css/main.a59a6c39.chunk.css.map": "/merntodo/static/css/main.a59a6c39.chunk.css.map",
     "static/js/2.bd0621af.chunk.js.LICENSE": "/merntodo/static/js/2.bd0621af.chunk.js.LICENSE",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.b9e16512.js",
     "static/js/2.bd0621af.chunk.js",
     "static/css/main.a59a6c39.chunk.css",
-    "static/js/main.8b6e5415.chunk.js"
+    "static/js/main.3d587ef5.chunk.js"
   ]
 }
