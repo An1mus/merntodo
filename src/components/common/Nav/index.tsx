@@ -26,6 +26,13 @@ const NavLinkItems = styled.div`
     justify-content: space-between;
     width: 50%;
     min-width: 23rem;
+    
+    @media (min-width:980px) {
+        display: flex;
+        flex-direction: column;
+        min-width: initial;
+        width: 100%;
+    }
 `;
 
 const NavContainer = styled.div`
@@ -42,6 +49,8 @@ const NavContainer = styled.div`
     transitions: all .3s;
     
     @media (min-width:980px) {
+        flex-direction: column;
+        justify-content: start;
         bottom: 0;
         left: 0;
         top: 0;

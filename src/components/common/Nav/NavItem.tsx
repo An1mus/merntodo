@@ -87,7 +87,6 @@ const NavItemContainer = styled.div`
     }
     
     @media(min-width: 980px) {
-        display: initial;
         margin-bottom: 0.5rem;
         width: 100%;
         
@@ -115,6 +114,15 @@ const NavItemContainer = styled.div`
             justify-content: space-around;
             margin-right: 1rem;
             margin-left: 2.2rem;
+        }
+        
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    
+        .linkText {
+            display: initial;
         }
     }
 `;
