@@ -8,32 +8,41 @@ const LogoContainer = styled.div`
     box-sizing: border-box;
     margin: 2rem auto 6rem auto;
     pointer-events: none;
-    display: flex;
+    display: none;
     width: 10rem;    
     
     img {
         position: relative;
         width: 100%;
     }
+    
+    @media (min-width:980px) {
+        display: flex;
+    }
+`;
+
+const NavLinkItems = styled.div`
+    display: flex;
 `;
 
 const NavContainer = styled.div`
     bottom: 0;
     background: white;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     left: 0;
     position: fixed;
-    top: 0;
-    width: 14rem;
+    top: auto;
+    bottom: 0;
+    width: 100%;
     transitions: all .3s;
-    transform: translate(0, -100%);
-    
-    &.shown {
-        transform: translate(0, 0)
-    }
     
     @media (min-width:980px) {
-        transform: translate(0, 0);
+        bottom: 0;
+        left: 0;
+        top: 0;
+        width: 14rem;
     }
 `;
 
@@ -50,13 +59,13 @@ const Nav: React.FC<NavProps> = ({isNavOpen}) => {
                 <img src={logo} alt="Logo" />
             </LogoContainer>
 
-            <div>
+            <NavLinkItems>
                 {NAV_LINKS.map(
                     ({id, to, title, Icon}) => (
                         <NavItem key={id} to={to} title={title} Icon={Icon}/>
                     )
                 )}
-            </div>
+            </NavLinkItems>
         </NavContainer>
     );
 };
