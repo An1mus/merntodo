@@ -17,7 +17,7 @@ const AppContainer = styled.div`
 const AppContent = styled.div`
     box-sizing: border-box;
     font-family: 'Proxima Nova', sans-serif;
-    padding: 0 2.5rem;
+    padding: 0 2.5rem 4.2rem 2.5rem;
     width: 100%;
     
     @media (min-width:980px) {

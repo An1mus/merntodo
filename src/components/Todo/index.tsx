@@ -9,7 +9,7 @@ import { TodoItem } from '../../commons/types/todoItem';
 const ListContainer = styled.div`
     margin: 0 auto;
     min-width: 24rem;
-    padding: 3rem 0;
+    padding: 3rem 0 0 0;
     width: 80%;
 `;
 
