@@ -8,7 +8,7 @@ const NavItemContainer = styled.div`
     display: flex;
     margin-bottom: 0;
     position: relative;
-    width: 100%;
+    width: auto;
     
     &.active {
         background: var(--nav-active-link-background);
@@ -89,6 +89,7 @@ const NavItemContainer = styled.div`
     @media(min-width: 980px) {
         display: initial;
         margin-bottom: 0.5rem;
+        width: 100%;
         
         &:not(:last-child) {
             margin-right: 0;

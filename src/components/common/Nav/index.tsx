@@ -23,6 +23,9 @@ const LogoContainer = styled.div`
 
 const NavLinkItems = styled.div`
     display: flex;
+    justify-content: space-between;
+    width: 50%;
+    min-width: 23rem;
 `;
 
 const NavContainer = styled.div`
@@ -46,14 +49,10 @@ const NavContainer = styled.div`
     }
 `;
 
-interface NavProps {
-    isNavOpen: boolean,
-}
-
-const Nav: React.FC<NavProps> = ({isNavOpen}) => {
+const Nav: React.FC = () => {
     return (
         <NavContainer
-            className={'u-flex u-flex-column' + (isNavOpen ? ' shown' : '')}
+            className={'u-flex u-flex-column'}
         >
             <LogoContainer>
                 <img src={logo} alt="Logo" />
