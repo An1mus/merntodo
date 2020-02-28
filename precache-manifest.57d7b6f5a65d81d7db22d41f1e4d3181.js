@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "be6e8e6cb842b00ae3d7d3840e4c4588",
+    "revision": "7c19554fa2484af9f389255ce601016f",
     "url": "/merntodo/index.html"
   },
   {
-    "revision": "44621a231b06d40675e5",
-    "url": "/merntodo/static/css/main.4359408a.chunk.css"
+    "revision": "8dd10cb7ae0d79c032c5",
+    "url": "/merntodo/static/css/main.a59a6c39.chunk.css"
   },
   {
-    "revision": "f9483d98bc024a785cd5",
-    "url": "/merntodo/static/js/2.1a1bad4a.chunk.js"
+    "revision": "288393b9e8c2350ddf91",
+    "url": "/merntodo/static/js/2.bd0621af.chunk.js"
   },
   {
     "revision": "c3d6a8ffe504ff94840dd784346d078f",
-    "url": "/merntodo/static/js/2.1a1bad4a.chunk.js.LICENSE"
+    "url": "/merntodo/static/js/2.bd0621af.chunk.js.LICENSE"
   },
   {
-    "revision": "44621a231b06d40675e5",
-    "url": "/merntodo/static/js/main.8c2b48d5.chunk.js"
+    "revision": "8dd10cb7ae0d79c032c5",
+    "url": "/merntodo/static/js/main.8b6e5415.chunk.js"
   },
   {
     "revision": "d4bb4bd344c969001c84",
@@ -42,5 +42,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9672d67e371f928173e9263868ffc763",
     "url": "/merntodo/static/media/Karma_icon.9672d67e.svg"
+  },
+  {
+    "revision": "0528ffd7aba8615263eeb672db7994ab",
+    "url": "/merntodo/static/media/logo.0528ffd7.svg"
   }
 ]);

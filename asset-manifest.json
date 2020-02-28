@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/merntodo/static/css/main.4359408a.chunk.css",
-    "main.js": "/merntodo/static/js/main.8c2b48d5.chunk.js",
-    "main.js.map": "/merntodo/static/js/main.8c2b48d5.chunk.js.map",
+    "main.css": "/merntodo/static/css/main.a59a6c39.chunk.css",
+    "main.js": "/merntodo/static/js/main.8b6e5415.chunk.js",
+    "main.js.map": "/merntodo/static/js/main.8b6e5415.chunk.js.map",
     "runtime-main.js": "/merntodo/static/js/runtime-main.b9e16512.js",
     "runtime-main.js.map": "/merntodo/static/js/runtime-main.b9e16512.js.map",
-    "static/js/2.1a1bad4a.chunk.js": "/merntodo/static/js/2.1a1bad4a.chunk.js",
-    "static/js/2.1a1bad4a.chunk.js.map": "/merntodo/static/js/2.1a1bad4a.chunk.js.map",
+    "static/js/2.bd0621af.chunk.js": "/merntodo/static/js/2.bd0621af.chunk.js",
+    "static/js/2.bd0621af.chunk.js.map": "/merntodo/static/js/2.bd0621af.chunk.js.map",
     "index.html": "/merntodo/index.html",
-    "precache-manifest.a7d807d99f99167710aebae33d11ecda.js": "/merntodo/precache-manifest.a7d807d99f99167710aebae33d11ecda.js",
+    "precache-manifest.57d7b6f5a65d81d7db22d41f1e4d3181.js": "/merntodo/precache-manifest.57d7b6f5a65d81d7db22d41f1e4d3181.js",
     "service-worker.js": "/merntodo/service-worker.js",
-    "static/css/main.4359408a.chunk.css.map": "/merntodo/static/css/main.4359408a.chunk.css.map",
-    "static/js/2.1a1bad4a.chunk.js.LICENSE": "/merntodo/static/js/2.1a1bad4a.chunk.js.LICENSE",
+    "static/css/main.a59a6c39.chunk.css.map": "/merntodo/static/css/main.a59a6c39.chunk.css.map",
+    "static/js/2.bd0621af.chunk.js.LICENSE": "/merntodo/static/js/2.bd0621af.chunk.js.LICENSE",
     "static/media/Category_icon.297445d9.svg": "/merntodo/static/media/Category_icon.297445d9.svg",
     "static/media/Dahsboard_icon.4b6a1e86.svg": "/merntodo/static/media/Dahsboard_icon.4b6a1e86.svg",
     "static/media/FilterIcon.98384d0b.svg": "/merntodo/static/media/FilterIcon.98384d0b.svg",
     "static/media/Filters_icon.3204fbd7.svg": "/merntodo/static/media/Filters_icon.3204fbd7.svg",
-    "static/media/Karma_icon.9672d67e.svg": "/merntodo/static/media/Karma_icon.9672d67e.svg"
+    "static/media/Karma_icon.9672d67e.svg": "/merntodo/static/media/Karma_icon.9672d67e.svg",
+    "static/media/logo.svg": "/merntodo/static/media/logo.0528ffd7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b9e16512.js",
-    "static/js/2.1a1bad4a.chunk.js",
-    "static/css/main.4359408a.chunk.css",
-    "static/js/main.8c2b48d5.chunk.js"
+    "static/js/2.bd0621af.chunk.js",
+    "static/css/main.a59a6c39.chunk.css",
+    "static/js/main.8b6e5415.chunk.js"
   ]
 }
