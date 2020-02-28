@@ -108,7 +108,7 @@ const NavItemContainer = styled.div`
     
         .iconContainer {
             height: 1.2rem;
-            width: 5rem;
+            width: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: space-around;
