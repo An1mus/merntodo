@@ -30,3 +30,7 @@ html {
 .u-flex-column {
     flex-direction: column;
 }
+
+a {
+    text-decoration: none;
+}

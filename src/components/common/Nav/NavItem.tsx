@@ -9,6 +9,10 @@ const NavItemContainer = styled.div`
     margin-bottom: 0;
     position: relative;
     width: auto;
+    color: var(--main-idle-text-color);
+    font-size: 1rem;
+    line-height: 3;
+    text-decoration: none;
     
     &.active {
         background: var(--nav-active-link-background);
@@ -71,14 +75,7 @@ const NavItemContainer = styled.div`
         transition: all .3s;
     }
     
-    a {
-        color: var(--main-idle-text-color);
-        text-decoration: none;
-        font-size: 1rem;
-        line-height: 3;
-    }
-    
-    &.active a {
+    &.active {
         color: var(--main-text-color);
     }
     
@@ -122,7 +119,8 @@ const NavItemContainer = styled.div`
         }
     
         .linkText {
-            display: initial;
+            display: initial;    
+            text-decoration: none;
         }
     }
 `;
@@ -130,12 +128,14 @@ const NavItemContainer = styled.div`
 const NavItem = withRouter(({to, title, Icon, location}) => {
     const {pathname} = location;
     return (
-        <NavItemContainer className={pathname === to ? 'active' : ''}>
-            <div className="iconContainer">
-                {Icon && <Icon/>}
-            </div>
-            <NavLink className={'linkText'} to={to}>{title}</NavLink>
-        </NavItemContainer>
+        <NavLink to={to}>
+            <NavItemContainer className={pathname === to ? 'active' : ''}>
+                    <div className="iconContainer">
+                        {Icon && <Icon/>}
+                    </div>
+                    <div className="linkText">{title}</div>
+            </NavItemContainer>
+        </NavLink>
     )
 });
 
