@@ -1,5 +1,6 @@
 :root {
     --main-background-color: #F5F5FC;
+    --main-background-highlight-color: #FFFFFF;
 
     --main-highlight-color: #314EFF;
 
@@ -17,6 +18,13 @@
 html {
     background: var(--main-text-color);
     background-color: var(--main-background-color);
+    box-sizing: border-box;
+}
+
+*,
+* *,
+* * * {
+    box-sizing: border-box;
 }
 
 .u-flex {
@@ -33,4 +41,8 @@ html {
 
 a {
     text-decoration: none;
+}
+
+h2 {
+    margin-top: 0;
 }

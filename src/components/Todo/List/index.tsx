@@ -1,6 +1,13 @@
 import React from 'react';
 import ListItem from './ListItem';
 import { TodoItem } from '../../../commons/types/todoItem';
+import styled from 'styled-components';
+
+const ListItemsContainer = styled.div`
+    background: var(--main-background-highlight-color);
+    border-radius: 1rem;
+    padding: 2rem;
+`;
 
 interface Props {
     todos: TodoItem[],
@@ -10,7 +17,7 @@ interface Props {
 
 const List = ({onDelete, updateTodo, todos = []}: Props,) => {
     return (
-        <>
+        <ListItemsContainer>
             {
                 todos.length !== 0
                     ? todos.map((item: any) => (
@@ -23,7 +30,7 @@ const List = ({onDelete, updateTodo, todos = []}: Props,) => {
                         ))
                     : <p>Nothing to do yet...</p>
             }
-        </>
+        </ListItemsContainer>
     )
 };
 

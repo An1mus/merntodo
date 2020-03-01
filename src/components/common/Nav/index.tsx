@@ -37,7 +37,7 @@ const NavLinkItems = styled.div`
 
 const NavContainer = styled.div`
     bottom: 0;
-    background: white;
+    background: var(--main-background-highlight-color);
     display: flex;
     flex-direction: row;
     justify-content: space-around;

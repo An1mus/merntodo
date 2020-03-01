@@ -9,8 +9,8 @@ import { TodoItem } from '../../commons/types/todoItem';
 const ListContainer = styled.div`
     margin: 0 auto;
     min-width: 24rem;
-    padding: 3rem 0 0 0;
-    width: 80%;
+    padding: 2rem 0 0 0;
+    width: 100%;
 `;
 
 
@@ -23,13 +23,16 @@ interface Props {
 
 const Todo = ({addTodo, deleteTodo, updateTodo, todos}: Props) => {
     return (
-        <ListContainer>
+        <>
             <AddItemForm addTodo={addTodo}/>
-            <h2>
-                Your To-Dos
-            </h2>
-            <List todos={todos} onDelete={deleteTodo} updateTodo={updateTodo}/>
-        </ListContainer>
+
+            <ListContainer>
+                <h2>
+                    Your To-Dos
+                </h2>
+                <List todos={todos} onDelete={deleteTodo} updateTodo={updateTodo}/>
+            </ListContainer>
+        </>
     );
 };
 
