@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import AddItemForm from './AddItemForm';
 import todoActions from '../../redux/actions/todos';
+import ListHeader from './ListHeader';
 import List from './List';
 import { TodoItem } from '../../commons/types/todoItem';
 
@@ -11,6 +12,12 @@ const ListContainer = styled.div`
     min-width: 24rem;
     padding: 2rem 0 0 0;
     width: 100%;
+`;
+
+const ListItemsContainer = styled.div`
+    background: var(--main-background-highlight-color);
+    border-radius: 1rem;
+    padding: 2rem;
 `;
 
 
@@ -30,7 +37,11 @@ const Todo = ({addTodo, deleteTodo, updateTodo, todos}: Props) => {
                 <h2>
                     Your To-Dos
                 </h2>
-                <List todos={todos} onDelete={deleteTodo} updateTodo={updateTodo}/>
+
+                <ListItemsContainer>
+                    <ListHeader />
+                    <List todos={todos} onDelete={deleteTodo} updateTodo={updateTodo}/>
+                </ListItemsContainer>
             </ListContainer>
         </>
     );
