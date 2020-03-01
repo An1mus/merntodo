@@ -49,6 +49,7 @@ const NavContainer = styled.div`
     transitions: all .3s;
     
     @media (min-width:980px) {
+        box-shadow: 0 2px 11px var(--nav-shadow-color);
         flex-direction: column;
         justify-content: start;
         bottom: 0;

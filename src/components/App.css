@@ -12,6 +12,7 @@
     --main-idle-icon-color: #CFD3E6;
     --main-highlight-icon-color: #314EFF;
 
+    --nav-shadow-color: rgba(137, 147, 157, 0.1);
     --nav-active-link-background: rgba(49, 78, 255, 0.07);
 }
 
