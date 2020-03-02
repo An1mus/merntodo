@@ -7,6 +7,7 @@ import { Priority } from '../../../commons/types/Priority';
 
 const FormComponent = styled.form`
     display: flex;
+    margin: 2.5rem 0 0 0;
 `;
 
 const emptyItem: TodoItem = {
