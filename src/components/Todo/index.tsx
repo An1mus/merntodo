@@ -1,17 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
-import AddItemForm from './AddItemForm';
-import todoActions from '../../redux/actions/todos';
 import ListHeader from './ListHeader';
 import List from './List';
 import { TodoItem } from '../../commons/types/todoItem';
 import Overview from './Overview';
 
-const ListContainer = styled.div`
-    margin: 0 auto;
+const ListContainer = styled.section`
     min-width: 24rem;
-    padding: 2rem 0 0 0;
     width: 100%;
 `;
 
