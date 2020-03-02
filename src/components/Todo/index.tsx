@@ -22,17 +22,14 @@ const ListItemsContainer = styled.div`
 
 
 interface Props {
-    addTodo: (newItem: TodoItem) => void,
     deleteTodo: (id: string) => void,
     updateTodo: (newItem: TodoItem) => void,
     todos: TodoItem[]
 }
 
-const Todo = ({addTodo, deleteTodo, updateTodo, todos}: Props) => {
+const TodoList = ({deleteTodo, updateTodo, todos}: Props) => {
     return (
         <>
-            <AddItemForm addTodo={addTodo}/>
-
             <ListContainer>
                 <h2>
                     Your To-Dos
@@ -47,16 +44,4 @@ const Todo = ({addTodo, deleteTodo, updateTodo, todos}: Props) => {
     );
 };
 
-const mapStateToProps = (store: any) => {
-    return {
-        todos: store.todos
-    }
-};
-
-const mapDispatchToProps = {
-    addTodo: todoActions.addTodo,
-    deleteTodo: todoActions.deleteTodo,
-    updateTodo: todoActions.updateTodo,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default TodoList;
