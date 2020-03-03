@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import AddItemForm from '../../Todo/AddItemForm';
+import { TodoItem } from '../../../commons/types/todoItem';
 
 const HeaderContainer = styled.div`
     display: flex;
@@ -7,10 +9,14 @@ const HeaderContainer = styled.div`
     justify-content: space-between;
 `;
 
-const Header: React.FC = () => {
+interface Props {
+    addTodo: (item: TodoItem) => void,
+}
+
+const Header: React.FC<Props> = ({addTodo}) => {
     return (
         <HeaderContainer>
-            <h1>Todo LIST</h1>
+            <AddItemForm addTodo={addTodo}/>
         </HeaderContainer>
     );
 };
