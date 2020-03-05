@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/merntodo/static/css/main.a298f0a9.chunk.css",
-    "main.js": "/merntodo/static/js/main.35c0399e.chunk.js",
-    "main.js.map": "/merntodo/static/js/main.35c0399e.chunk.js.map",
+    "main.css": "/merntodo/static/css/main.ba3ba38c.chunk.css",
+    "main.js": "/merntodo/static/js/main.925ed1a5.chunk.js",
+    "main.js.map": "/merntodo/static/js/main.925ed1a5.chunk.js.map",
     "runtime-main.js": "/merntodo/static/js/runtime-main.b9e16512.js",
     "runtime-main.js.map": "/merntodo/static/js/runtime-main.b9e16512.js.map",
     "static/js/2.bd0621af.chunk.js": "/merntodo/static/js/2.bd0621af.chunk.js",
     "static/js/2.bd0621af.chunk.js.map": "/merntodo/static/js/2.bd0621af.chunk.js.map",
     "index.html": "/merntodo/index.html",
-    "precache-manifest.1398ce8542a578bf37106da2c3131791.js": "/merntodo/precache-manifest.1398ce8542a578bf37106da2c3131791.js",
+    "precache-manifest.7532463aa674da097fe8f29475589a84.js": "/merntodo/precache-manifest.7532463aa674da097fe8f29475589a84.js",
     "service-worker.js": "/merntodo/service-worker.js",
-    "static/css/main.a298f0a9.chunk.css.map": "/merntodo/static/css/main.a298f0a9.chunk.css.map",
+    "static/css/main.ba3ba38c.chunk.css.map": "/merntodo/static/css/main.ba3ba38c.chunk.css.map",
     "static/js/2.bd0621af.chunk.js.LICENSE": "/merntodo/static/js/2.bd0621af.chunk.js.LICENSE",
     "static/media/Category_icon.297445d9.svg": "/merntodo/static/media/Category_icon.297445d9.svg",
     "static/media/Dahsboard_icon.4b6a1e86.svg": "/merntodo/static/media/Dahsboard_icon.4b6a1e86.svg",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.b9e16512.js",
     "static/js/2.bd0621af.chunk.js",
-    "static/css/main.a298f0a9.chunk.css",
-    "static/js/main.35c0399e.chunk.js"
+    "static/css/main.ba3ba38c.chunk.css",
+    "static/js/main.925ed1a5.chunk.js"
   ]
 }
