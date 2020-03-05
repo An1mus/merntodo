@@ -26,7 +26,7 @@ interface Props {
 const TodoList = ({deleteTodo, updateTodo, todos}: Props) => {
     return (
         <>
-            <Overview />
+            <Overview todos={todos}/>
             <ListContainer>
                 <h2>
                     Your To-Dos
