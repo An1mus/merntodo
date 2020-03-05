@@ -1,5 +1,6 @@
 :root {
     --main-background-color: #F5F5FC;
+    --main-background-highlight-color: #FFFFFF;
 
     --main-highlight-color: #314EFF;
 
@@ -11,11 +12,20 @@
     --main-idle-icon-color: #CFD3E6;
     --main-highlight-icon-color: #314EFF;
 
+    --nav-shadow-color: rgba(137, 147, 157, 0.1);
     --nav-active-link-background: rgba(49, 78, 255, 0.07);
 }
 
 html {
+    background: var(--main-text-color);
     background-color: var(--main-background-color);
+    box-sizing: border-box;
+}
+
+*,
+* *,
+* * * {
+    box-sizing: border-box;
 }
 
 .u-flex {
@@ -28,4 +38,16 @@ html {
 
 .u-flex-column {
     flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+section {
+    margin-top: 2rem;
 }

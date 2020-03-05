@@ -7,6 +7,7 @@ import { Priority } from '../../../commons/types/Priority';
 
 const FormComponent = styled.form`
     display: flex;
+    margin: 2.5rem 0 0 0;
 `;
 
 const emptyItem: TodoItem = {
@@ -27,17 +28,32 @@ interface Props {
 const AddItemForm = ({addTodo}: Props) => {
     const [itemTitle, setItemTitle] = useState('');
     const [itemPriority, setItemPriority] = useState('0');
+    const [categoryName, setItemCategory] = useState(CATEGORIES.General.name);
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
-        addTodo({ ...emptyItem, id: createUniqueId(), name: itemTitle, priority: Priority[itemPriority]});
+        addTodo({
+            ...emptyItem,
+            category: CATEGORIES[categoryName],
+            id: createUniqueId(),
+            name: itemTitle,
+            priority: Priority[itemPriority]
+        });
 
         setItemTitle('');
     };
 
     return (
         <FormComponent onSubmit={e => handleSubmit(e)}>
+            <select value={categoryName} onChange={e => setItemCategory(e.target.value)}>
+                <option value={CATEGORIES.General.name}>General</option>
+                <option value={CATEGORIES.Gym.name}>Gym</option>
+                <option value={CATEGORIES.Codding.name}>Codding</option>
+                <option value={CATEGORIES.Chilling.name}>Chilling</option>
+                <option value={CATEGORIES.Educating.name}>Educating</option>
+                <option value={CATEGORIES.Work.name}>Work</option>
+            </select>
             <select value={itemPriority} onChange={e => setItemPriority(e.target.value)}>
                 <option value={'0'}>Low</option>
                 <option value={'1'}>Medium</option>
