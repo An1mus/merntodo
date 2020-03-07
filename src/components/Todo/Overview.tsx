@@ -24,9 +24,9 @@ const Overview: React.FC<OverviewProps> = ({todos}) => {
             <h2>Overview</h2>
 
             <ChartsContainer>
-                <div>Done tasks: {todos.filter(item => item.isChecked).length}</div>
-                <div>Tasks remaining: {todos.filter(item => !item.isChecked).length}</div>
-                <div>Done by category chart?</div>
+                <div>Done: <b>{todos.filter(item => item.isChecked).length}</b></div>
+                <div>Remaining: <b>{todos.filter(item => !item.isChecked).length}</b></div>
+                <div>Total: <b>{todos.length}</b></div>
             </ChartsContainer>
         </OverviewContainer>
     )
