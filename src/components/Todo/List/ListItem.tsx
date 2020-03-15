@@ -77,7 +77,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
             */}
             <p className={'itemDeadline'}>
                 {endDate && <span><Clock /></span>}
-                {endDate ? <span>{displayDate.getUTCDate()}</span> : 'One Time'}
+                {endDate ? <span>{displayDate.getUTCDate()}</span> : <span>One Time</span>}
             </p>
             <input type='checkbox' defaultChecked={isChecked} onChange={() => checkItem()} />
             <button onClick={() => onDelete(item.id)}>Delete</button>
