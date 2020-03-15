@@ -9,7 +9,7 @@ const LogoContainer = styled.div`
     margin: 2rem auto 6rem auto;
     pointer-events: none;
     display: none;
-    width: 10rem;    
+    width: 8rem;    
     
     img {
         position: relative;
