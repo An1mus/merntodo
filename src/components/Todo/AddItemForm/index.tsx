@@ -35,6 +35,7 @@ const AddItemForm = ({addTodo}: Props) => {
 
         addTodo({
             ...emptyItem,
+            endDate: new Date(),
             category: CATEGORIES[categoryName],
             id: createUniqueId(),
             name: itemTitle,
