@@ -20,6 +20,7 @@ const ListItemContainer = styled.div`
     justify-content: start;
     margin-bottom: 0.5rem;
     padding: 1rem;
+    transition: all .3s;
     width: 100%;
     
     .itemTitle{
@@ -67,7 +68,7 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
     };
 
     return (
-        <ListItemContainer>
+        <ListItemContainer style={{opacity: isChecked ? '0.7' : ''}}>
             <FilterIcon priority={priority}/>
             <p className={'itemTitle'}>{name}</p>
             <CategoryLabel name={category.name} color={category.color}/>
