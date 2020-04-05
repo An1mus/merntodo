@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ListHeader from './ListHeader';
 import List from './List';
 import { TodoItem } from '../../commons/types/todoItem';
-import Overview from './Overview';
+import Overview from './Overview/';
 
 const ListContainer = styled.section`
     min-width: 24rem;

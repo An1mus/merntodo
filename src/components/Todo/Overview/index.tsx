@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TodoItem } from '../../commons/types/todoItem';
+import { TodoItem } from '../../../commons/types/todoItem';
 
 const OverviewContainer = styled.section`
 `;
