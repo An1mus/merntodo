@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TodoItem } from '../../../commons/types/todoItem';
+import OverviewItem from './OverviewItem';
 
 const OverviewContainer = styled.section`
 `;
@@ -24,9 +25,18 @@ const Overview: React.FC<OverviewProps> = ({todos}) => {
             <h2>Overview</h2>
 
             <ChartsContainer>
-                <div>Done: <b>{todos.filter(item => item.isChecked).length}</b></div>
-                <div>Remaining: <b>{todos.filter(item => !item.isChecked).length}</b></div>
-                <div>Total: <b>{todos.length}</b></div>
+                <OverviewItem
+                    header={'The ration of done to Created / day'}
+                    items={todos.filter(item => item.isChecked).length}
+                />
+                <OverviewItem
+                    header={'The ratio of items done in time / day'}
+                    items={todos.filter(item => !item.isChecked).length}
+                />
+                <OverviewItem
+                    header={'The ratio of Critical to Low done / day'}
+                    items={todos.length}
+                />
             </ChartsContainer>
         </OverviewContainer>
     )

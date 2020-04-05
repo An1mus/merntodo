@@ -1,12 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+import OverviewChart from './OverviewChart';
+
+const OverviewItemContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 interface OverviewItemProps {
     items: number,
-    header: string
+    header: string,
 }
 
 const OverviewItem: React.FC<OverviewItemProps> = ({items, header}) => {
-    return <p>{{header}}: {{items}}</p>
+    return <OverviewItemContainer>
+        <p>{header}</p>
+        <OverviewChart chartData={items}/>
+    </OverviewItemContainer>
 };
 
 export default OverviewItem;
