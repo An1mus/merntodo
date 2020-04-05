@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { TodoItem } from '../../../commons/types/todoItem';
-import FilterIcon from '../../common/FilterIcon';
-import CategoryLabel from '../../common/CategoryLabel';
+import FilterIcon from '../../commons/FilterIcon';
+import CategoryLabel from '../../commons/CategoryLabel';
 import {ReactComponent as Clock} from '../../../assets/icons/clock.svg';
 
 interface Props {
