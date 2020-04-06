@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { TodoItem } from '../../../commons/types/todoItem';
-import FilterIcon from '../../common/FilterIcon';
-import CategoryLabel from '../../common/CategoryLabel';
+import FilterIcon from '../../commons/FilterIcon';
+import CategoryLabel from '../../commons/CategoryLabel';
+import {ReactComponent as Clock} from '../../../assets/icons/clock.svg';
 
 interface Props {
     item: TodoItem,
@@ -19,6 +20,7 @@ const ListItemContainer = styled.div`
     justify-content: start;
     margin-bottom: 0.5rem;
     padding: 1rem;
+    transition: all .3s;
     width: 100%;
     
     .itemTitle{
@@ -33,6 +35,13 @@ const ListItemContainer = styled.div`
     
     .itemDeadline{ 
         margin: 0 1.3rem 0 auto;
+        display: flex;
+        vertical-align: center;
+    }
+    
+    .itemDeadline span {
+        color: var(--main-idle-text-color);
+        margin-right: 0.3rem;
     }
     
     input[type=checkbox]{
@@ -48,6 +57,8 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
     const [todoItem, setTodoItem] = useState(item);
     const {priority, name, category, isChecked, endDate} = todoItem;
 
+    const displayDate = new Date(endDate);
+
     useEffect(() => {
         updateTodo(todoItem);
         }, [todoItem]);
@@ -57,16 +68,18 @@ const ListItem = ({onDelete, updateTodo, item}: Props) => {
     };
 
     return (
-        <ListItemContainer>
+        <ListItemContainer style={{opacity: isChecked ? '0.7' : ''}}>
             <FilterIcon priority={priority}/>
             <p className={'itemTitle'}>{name}</p>
             <CategoryLabel name={category.name} color={category.color}/>
             {/*
             <p>isChecked: {isChecked ? 'Yes' : 'No'}</p>
             <p>Date: {new Date(date).toISOString()}</p>
-            <p>End date: {endDate ? new Date(endDate).toISOString() : 'No end date'}</p>
             */}
-            <p className={'itemDeadline'}>{endDate ? {endDate} : 'One Time'}</p>
+            <p className={'itemDeadline'}>
+                {endDate && <span><Clock /></span>}
+                {endDate ? <span>{displayDate.getUTCDate()}</span> : <span>One Time</span>}
+            </p>
             <input type='checkbox' defaultChecked={isChecked} onChange={() => checkItem()} />
             <button onClick={() => onDelete(item.id)}>Delete</button>
         </ListItemContainer>

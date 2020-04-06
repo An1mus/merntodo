@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {HashRouter, Switch, Route} from 'react-router-dom';
-import Header from './common/Header/';
-import Nav from './common/Nav/'
+import Header from './commons/Header/';
+import Nav from './commons/Nav/'
 import TodoList from './Todo';
 import Karma from './Karma';
 import Categories from './Categories';
