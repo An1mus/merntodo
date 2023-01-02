@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavItemContainer = styled.div`
     align-items: center;
@@ -125,8 +125,8 @@ const NavItemContainer = styled.div`
     }
 `;
 
-const NavItem = withRouter(({to, title, Icon, location}) => {
-    const {pathname} = location;
+const NavItem = ({to, title, Icon}) => {
+    const pathname = "TODO: CHANGE TO PARAMS";
     return (
         <NavLink to={to}>
             <NavItemContainer className={pathname === to ? 'active' : ''}>
@@ -137,6 +137,6 @@ const NavItem = withRouter(({to, title, Icon, location}) => {
             </NavItemContainer>
         </NavLink>
     )
-});
+};
 
 export default NavItem;

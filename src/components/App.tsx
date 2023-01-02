@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {HashRouter, Switch, Route} from 'react-router-dom';
+import {HashRouter, Routes, Route} from 'react-router-dom';
 import Header from './common/Header/';
 import Nav from './common/Nav/'
 import TodoList from './Todo';
@@ -42,18 +42,16 @@ const App: React.FC<Props> = ({addTodo, deleteTodo, updateTodo, todos}) => {
                 <Nav/>
                 <AppContent className={'u-flex u-flex-column'}>
                     <Header addTodo={addTodo}/>
-                    <Switch>
-                        <Route exact path={'/'} render={() => (
-                            <TodoList
-                                todos={todos}
-                                deleteTodo={deleteTodo}
-                                updateTodo={updateTodo}
-                            />
-                        )} />
-                        <Route path={'/karma'} component={Karma}/>
-                        <Route path={'/categories'} component={Categories}/>
-                        <Route path={'*'} component={FallBackPage}/>
-                    </Switch>
+                    <Routes>
+                        <Route path={'/'} element={<TodoList
+                            todos={todos}
+                            deleteTodo={deleteTodo}
+                            updateTodo={updateTodo}
+                        />} />
+                        <Route path={'/karma'} element={<Karma />}/>
+                        <Route path={'/categories'} element={<Categories />}/>
+                        <Route path={'*'} element={<FallBackPage />}/>
+                    </Routes>
                 </AppContent>
             </AppContainer>
         </HashRouter>
