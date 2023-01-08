@@ -2,15 +2,27 @@ import React from "react";
 import {makeAutoObservable} from "mobx";
 
 interface ToDo {
+    id: string;
     name: string;
     description: string;
 }
 
 export class ToDoListStore {
-    items: ToDo[] = [];
+    items: ToDo[] = [
+        {
+            id: 'aoskdmaskdm',
+            name: 'NAME',
+            description: 'SOME TEXT'
+        },
+        {
+            id: 'oqweoiqweioqwoijeq',
+            name: 'NAME 2',
+            description: 'Other description'
+        }
+    ];
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this);
     }
 }
 
