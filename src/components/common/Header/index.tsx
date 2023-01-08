@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './header.module.scss';
+import {useAppStore} from "../../../mobx/app";
+import {observer} from "mobx-react-lite";
 
 interface Props {
     onThemeUpdate: () => void
 }
 
-const Header: React.FC<Props> = ({onThemeUpdate}) => {
-    const addToDoItem = () => {};
+const Header: React.FC<Props> = observer(({onThemeUpdate}) => {
+    const appStore = useAppStore();
 
     return <header className={styles.header}>
         <h1>
@@ -15,10 +17,10 @@ const Header: React.FC<Props> = ({onThemeUpdate}) => {
         <button onClick={() => onThemeUpdate()}>
             Theme
         </button>
-        <button onClick={() => addToDoItem()}>
+        <button onClick={() => appStore.startAddingNewItem()}>
             Add Item
         </button>
     </header>;
-}
+});
 
 export default Header;
