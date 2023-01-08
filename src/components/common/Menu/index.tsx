@@ -9,6 +9,10 @@ const MenuItems = [
     {
         name: 'Settings',
         path: '/settings'
+    },
+    {
+        name: 'Stats',
+        path: '/stats'
     }
 ];
 
