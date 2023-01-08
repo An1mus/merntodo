@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.scss';
-import {Menu} from "./components/common";
+import {Header, Menu} from "./components/common";
 import {HashRouter, Route, Routes} from "react-router-dom";
 import {ToDoList, Settings} from "./routes";
 
@@ -11,20 +11,12 @@ function App() {
             <HashRouter>
                 <Menu />
                 <div className="content-container">
-                    <header className="app-header">
-                        <span>
-                            ToTo
-                        </span>
-                        <button onClick={() => setTheme(prev => !prev)}>
-                            Theme
-                        </button>
-                    </header>
-
+                    <Header onThemeUpdate={() => setTheme(theme => !theme)}/>
                     <div className="content">
-                            <Routes>
-                                <Route path={'/'} element={<ToDoList />}/>
-                                <Route path={'/settings'} element={<Settings />} />
-                            </Routes>
+                        <Routes>
+                            <Route path={'/'} element={<ToDoList />}/>
+                            <Route path={'/settings'} element={<Settings />} />
+                        </Routes>
                     </div>
                 </div>
             </HashRouter>
