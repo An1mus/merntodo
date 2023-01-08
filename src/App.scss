@@ -19,6 +19,10 @@
 	--text-color-primary: var(--blue);
 }
 
+a {
+	text-decoration: none;
+}
+
 .app {
 	background: var(--background-color-primary);
 	color: var(--text-color-primary);

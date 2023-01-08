@@ -1,0 +1,15 @@
+nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: auto;
+
+	a {
+		line-height: 1.5rem;
+		padding: 0.5rem 1rem;
+	}
+}
