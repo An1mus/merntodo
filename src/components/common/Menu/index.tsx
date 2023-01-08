@@ -1,4 +1,5 @@
 import styles from './index.module.scss';
+import {Link} from "react-router-dom";
 
 const MenuItems = [
     {
@@ -13,7 +14,7 @@ const MenuItems = [
 
 const Menu = () => {
     return <nav className={styles.nav}>
-        {MenuItems.map(({path, name}) => <a key={name} href={path}>{name}</a>)}
+        {MenuItems.map(({path, name}) => <Link key={name} to={path}>{name}</Link>)}
     </nav>
 }
 
