@@ -5,7 +5,7 @@ import {HashRouter, Route, Routes} from "react-router-dom";
 import {ToDoList, Settings, Stats} from "./routes";
 import {AddItemPopup} from "./components";
 import {observer} from "mobx-react-lite";
-import {useAppStore} from "./mobx/app";
+import {useAppStore} from "./mobx";
 
 const App = observer(() => {
     const appStore = useAppStore();

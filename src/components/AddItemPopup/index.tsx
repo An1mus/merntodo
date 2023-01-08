@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
-import {useAppStore} from "../../mobx/app";
+import {useAppStore} from "../../mobx";
 import {useToDoListStore} from "../../mobx";
 
 interface Props {

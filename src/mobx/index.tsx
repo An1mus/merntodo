@@ -1,5 +1,7 @@
-import {useToDoListStore} from './todos';
+import {useToDoListStore} from './todos.store';
+import {useAppStore} from "./app.store";
 
 export {
-    useToDoListStore
+    useToDoListStore,
+    useAppStore
 }

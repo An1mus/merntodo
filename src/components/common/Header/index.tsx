@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './header.module.scss';
-import {useAppStore} from "../../../mobx/app";
+import {useAppStore} from "../../../mobx";
 import {observer} from "mobx-react-lite";
 
 interface Props {
