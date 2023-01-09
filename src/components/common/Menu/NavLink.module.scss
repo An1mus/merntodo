@@ -1,0 +1,29 @@
+.navLink {
+	align-items: center;
+	background: rgba(var(--color-active), 0.8);
+	color: var(--text-color-primary);
+	display: flex;
+	font-weight: 600;
+	line-height: 1.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	transition: all .3s;
+
+	svg {
+		fill: var(--text-color-primary);
+		font-size: 0;
+		margin-right: 0.625rem;
+		transition: all .3s;
+	}
+
+	&:hover {
+		color: var(--color-active);
+		transition: all .3s;
+
+		svg {
+			fill: var(--color-active);
+			transition: all .3s;
+		}
+	}
+}
+

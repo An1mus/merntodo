@@ -22,11 +22,15 @@ a {
 :root .light {
 	--background-color-primary: var(--grey);
 	--text-color-primary: var(--black);
+
+	--color-active: var(--orange);
 }
 
 :root .dark {
 	--background-color-primary: var(--black);
-	--text-color-primary: var(--blue);
+	--text-color-primary: var(--grey);
+
+	--color-active: var(--blue);
 }
 
 .app {
