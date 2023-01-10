@@ -1,11 +1,15 @@
-import styles from './index.module.scss';
+import React from "react";
+import Logo from "../Logo";
+import Index from "../ThemeSwitcher";
+import {useAppStore} from "../../../mobx";
+import {observer} from "mobx-react-lite";
 import NavLink from "./NavLink";
+
+import styles from './index.module.scss';
 
 import {ReactComponent as List} from '../../../img/nav/list-check.svg';
 import {ReactComponent as Settings} from '../../../img/nav/gear.svg';
 import {ReactComponent as Stats} from '../../../img/nav/clipboard-data.svg';
-import React from "react";
-import Logo from "../Logo";
 
 const MenuItems = [
     {
@@ -26,12 +30,17 @@ const MenuItems = [
 ];
 
 const Menu = () => {
+    const appStore = useAppStore();
     return <div className={styles.nav}>
-        <Logo/>
+        <div className={styles.navHeader}>
+            <Logo/>
+            <Index isOn={appStore.isDarkTheme} handleClick={() => appStore.toggleTheme()}/>
+        </div>
+
         <nav>
             {MenuItems.map(link => <NavLink key={link.path} {...link} />)}
         </nav>
     </div>
 }
 
-export default Menu;
+export default observer(Menu);

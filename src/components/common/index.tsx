@@ -1,7 +1,7 @@
 import Menu from "./Menu";
-import Header from "./Header";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export {
-    Header,
+    ThemeSwitcher,
     Menu
 }

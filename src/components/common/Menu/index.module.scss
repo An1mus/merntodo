@@ -7,4 +7,12 @@
 	nav {
 		margin-top: 5vh;
 	}
+
+	.navHeader {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+		padding-right: 1rem;
+	}
 }

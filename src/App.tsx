@@ -1,22 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.scss';
-import {Header, Menu} from "./components/common";
 import {HashRouter, Route, Routes} from "react-router-dom";
 import {ToDoList, Settings, Stats} from "./routes";
 import {AddItemPopup} from "./components";
+import {Menu} from "./components/common";
 import {observer} from "mobx-react-lite";
 import {useAppStore} from "./mobx";
 
 const App = observer(() => {
     const appStore = useAppStore();
-    const [theme, setTheme] = useState(true);
 
     return (
-        <div className={`app ${theme ? 'light' : 'dark'}`}>
+        <div className={`app ${appStore.isDarkTheme ? 'dark' : 'light'}`}>
             <HashRouter>
                 <Menu />
                 <div className="content-container">
-                    <Header onThemeUpdate={() => setTheme(theme => !theme)}/>
                     <div className="content">
                         <Routes>
                             <Route path={'/'} element={<ToDoList />}/>

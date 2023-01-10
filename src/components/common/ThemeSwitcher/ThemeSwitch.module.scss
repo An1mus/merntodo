@@ -1,0 +1,68 @@
+.switch {
+	cursor: pointer;
+
+	svg {
+		border-radius: 30%;
+		width: 4rem;
+		height: 2rem;
+		overflow: hidden;
+
+		.boundary {
+			overflow: hidden;
+		}
+	}
+}
+
+.sky,
+.sun,
+.moon,
+.clouds,
+.stars {
+	transition: all .3s;
+}
+
+.sky {
+	overflow: hidden;
+}
+
+.dark {
+	.sky {
+		fill: #151414;
+	}
+	.sun {
+		opacity: 0;
+		transform: translate(calc(58% + 0.125rem), 0);
+	}
+	.moon {
+		opacity: 1;
+		transform: translate(calc(58% + 0.125rem), 0);
+	}
+	.clouds {
+		opacity: 0;
+		transform: translate(50%, 0);
+	}
+	.stars {
+		opacity: 1;
+		transform: translate(0%, 0);
+	}
+}
+.light {
+	.sky {
+		fill: #008DC9;
+	}
+	.sun {
+		opacity: 1;
+	}
+	.moon {
+		opacity: 0;
+	}
+	.clouds {
+		opacity: 1;
+		transform: translate(0%, 0);
+	}
+	.stars {
+		opacity: 0;
+		transform: translate(-50%, 0);
+	}
+}
+

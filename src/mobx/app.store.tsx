@@ -5,6 +5,7 @@ import {NewToDo} from "./types";
 class AppStore {
     newTodoItem = {} as NewToDo;
     isAddingNewItem = false;
+    isDarkTheme = true;
 
     constructor() {
         makeAutoObservable(this);
@@ -30,6 +31,11 @@ class AppStore {
 
     stopAddingNewItem = () => {
         this.isAddingNewItem = false;
+    }
+
+    toggleTheme = () => {
+        this.isDarkTheme = !this.isDarkTheme;
+        console.log(this.isDarkTheme);
     }
 }
 
