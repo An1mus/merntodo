@@ -1,0 +1,13 @@
+.logo {
+	display: flex;
+	flex-wrap: wrap;
+	width: 2.25rem;
+	margin: 1rem;
+
+	div {
+		border: 0.3rem solid var(--color-active);
+		height: 1rem;
+		width: 1rem;
+		margin: 0.0625rem;
+	}
+}

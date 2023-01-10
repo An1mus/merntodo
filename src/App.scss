@@ -9,28 +9,30 @@ a {
 }
 
 :root {
-	--grey: rgb(202, 209, 219);
-	--black: rgb(0, 0, 0);
+	--grey: 202, 209, 219;
+	--black: 0, 0, 0;
 
-	--blue: rgb(82, 185, 232);
-	--orange: rgb(240, 125, 49);
+	--blue: 82, 185, 232;
+	--orange: 240, 125, 49;
 
 	//sizes
 	--app-max-width: 75rem;
 }
 
 :root .light {
-	--background-color-primary: var(--grey);
-	--text-color-primary: var(--black);
+	--background-color-primary: rgb(var(--grey));
+	--text-color-primary: rgb(var(--black));
+	--border-color: rgba(var(--black), 0.1);
 
-	--color-active: var(--orange);
+	--color-active: rgb(var(--orange));
 }
 
 :root .dark {
-	--background-color-primary: var(--black);
-	--text-color-primary: var(--grey);
+	--background-color-primary: rgb(var(--black));
+	--text-color-primary: rgb(var(--grey));
+	--border-color: rgba(var(--grey), 0.1);
 
-	--color-active: var(--blue);
+	--color-active: rgb(var(--blue));
 }
 
 .app {
@@ -43,5 +45,6 @@ a {
 
 .content-container {
 	margin: 0;
+	padding: 1rem;
 	width: 100%;
 }

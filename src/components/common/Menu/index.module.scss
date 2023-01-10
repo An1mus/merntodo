@@ -1,6 +1,10 @@
-nav {
+.nav {
+	border-right: 0.0625rem solid var(--border-color);
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	width: 10rem;
+	min-width: 15rem;
+
+	nav {
+		margin-top: 5vh;
+	}
 }
