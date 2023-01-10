@@ -1,15 +1,14 @@
 import React from "react";
-import Logo from "../Logo";
-import Index from "../ThemeSwitcher";
-import {useAppStore} from "../../../mobx";
+import {Logo, ThemeSwitcher} from "../common";
+import {useAppStore} from "../../mobx";
 import {observer} from "mobx-react-lite";
 import NavLink from "./NavLink";
 
 import styles from './index.module.scss';
 
-import {ReactComponent as List} from '../../../img/nav/list-check.svg';
-import {ReactComponent as Settings} from '../../../img/nav/gear.svg';
-import {ReactComponent as Stats} from '../../../img/nav/clipboard-data.svg';
+import {ReactComponent as List} from '../../img/nav/list-check.svg';
+import {ReactComponent as Settings} from '../../img/nav/gear.svg';
+import {ReactComponent as Stats} from '../../img/nav/clipboard-data.svg';
 
 const MenuItems = [
     {
@@ -34,7 +33,7 @@ const Menu = () => {
     return <div className={styles.nav}>
         <div className={styles.navHeader}>
             <Logo/>
-            <Index isOn={appStore.isDarkTheme} handleClick={() => appStore.toggleTheme()}/>
+            <ThemeSwitcher isOn={appStore.isDarkTheme} handleClick={() => appStore.toggleTheme()}/>
         </div>
 
         <nav>

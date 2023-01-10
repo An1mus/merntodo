@@ -1,7 +1,9 @@
-import Menu from "./Menu";
 import ThemeSwitcher from "./ThemeSwitcher";
+import Button from "./Button";
+import Logo from "./Logo";
 
 export {
     ThemeSwitcher,
-    Menu
+    Logo,
+    Button
 }
