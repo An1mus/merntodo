@@ -1,27 +1,27 @@
 import React from 'react';
-import {useAppStore, useToDoListStore} from "../../mobx";
+import {useToDoListStore} from "../../mobx";
 import ToDoItem from "./ToDoItem";
 import {observer} from "mobx-react-lite";
+import AddToDoItem from "./AddToDoItem";
+import styles from './ToDoList.module.scss';
 
 interface Props {}
 
 const ToDoList: React.FC<Props> = observer(() => {
     const {items} = useToDoListStore();
-    const appStore = useAppStore();
 
-    return <>
-        <h1>List</h1>
+    return <div className={styles.todoList}>
+        <div className={styles.list}>
+            {
+                items.map((item) => <ToDoItem
+                    key={item.id}
+                    {...item}
+                />)
+            }
+        </div>
 
-        <button onClick={() => appStore.startAddingNewItem()}>
-            Add Item
-        </button>
-        {
-            items.map((item) => <ToDoItem
-                key={item.id}
-                {...item}
-            />)
-        }
-    </>;
+        <AddToDoItem />
+    </div>;
 });
 
 export default ToDoList;

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import {HashRouter, Route, Routes} from "react-router-dom";
 import {ToDoList, Settings, Stats} from "./routes";
-import {AddItemPopup, Menu} from "./components";
+import {Menu} from "./components";
 import {observer} from "mobx-react-lite";
 import {useAppStore} from "./mobx";
 
@@ -23,8 +23,6 @@ const App = observer(() => {
                     </div>
                 </div>
             </HashRouter>
-
-            {appStore.isAddingNewItem && <AddItemPopup />}
         </div>
     );
 });

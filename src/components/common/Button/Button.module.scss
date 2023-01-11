@@ -1,3 +1,10 @@
 button {
-
+	border: none;
+	border-radius: 0.125rem;
+	background: var(--color-active);
+	color: white;
+	cursor: pointer;
+	font-size: 0.9375rem;
+	outline: none;
+	padding: 0.875rem 1rem;
 }

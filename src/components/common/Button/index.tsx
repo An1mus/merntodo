@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './Button.module.scss';
 
 interface Props {
-    title: string;
     onClick: () => void;
+    variant?: 'primary' | 'secondary';
+    children: JSX.Element | string;
 }
 
-const Button: React.FC<Props> = ({onClick, title}) => {
-    return <button className={styles.button}>{title}</button>;
+const Button: React.FC<Props> = ({onClick, variant, children}) => {
+    return <button className={`${styles.button} ${variant || 'primary'}`} onClick={onClick}>{children}</button>;
 }
 
 export default Button;

@@ -4,7 +4,6 @@ import {NewToDo} from "./types";
 
 class AppStore {
     newTodoItem = {} as NewToDo;
-    isAddingNewItem = false;
     isDarkTheme = true;
 
     constructor() {
@@ -23,14 +22,6 @@ class AppStore {
             ...this.newTodoItem,
             description
         };
-    }
-
-    startAddingNewItem = () => {
-        this.isAddingNewItem = true;
-    }
-
-    stopAddingNewItem = () => {
-        this.isAddingNewItem = false;
     }
 
     toggleTheme = () => {

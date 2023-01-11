@@ -4,14 +4,16 @@ import {v4 as uuid4} from 'uuid';
 import {NewToDo, ToDo} from "./types";
 
 export class ToDoListStore {
-    items: ToDo[] = [];
+    items: ToDo[] = [
+        {name: 'hey', description: 'aosjdoaisjdoaijsdoiajsod', isDone: false, id: 'oasijdoaimsdiaso'}
+    ];
 
     constructor() {
         makeAutoObservable(this);
     }
 
     addItemToTheList = ({name, description}: NewToDo) => {
-        this.items.push({
+        this.items.unshift({
             id: uuid4(),
             name,
             description,
