@@ -1,6 +1,8 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
 import {useToDoListStore} from "../../../mobx";
+import {Button} from "../../../components/common";
+import {ReactComponent as DeleteIcon} from "../../../img/delete.svg";
 
 interface Props {
     id: string;
@@ -20,9 +22,9 @@ const ToDoItem: React.FC<Props> = observer(({id, name, description, isDone}) => 
         <p>
             {description}
         </p>
-        <button onClick={() => listStore.removeItemFromTheList(id)}>
-            Delete item
-        </button>
+        <Button onClick={() => listStore.removeItemFromTheList(id)}>
+            <DeleteIcon />
+        </Button>
     </div>;
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Inpute.module.scss';
+import styles from './Input.module.scss';
 
 interface Props {
     type: 'text' | 'number'

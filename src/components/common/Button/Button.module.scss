@@ -7,4 +7,9 @@ button {
 	font-size: 0.9375rem;
 	outline: none;
 	padding: 0.875rem 1rem;
+
+	svg {
+		color: inherit;
+		fill: var(--text-color-primary);
+	}
 }
