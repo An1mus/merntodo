@@ -1,6 +1,6 @@
-button {
+.button {
 	border: none;
-	border-radius: 0.125rem;
+	border-radius: var(--border-radius);
 	background: var(--color-active);
 	color: white;
 	cursor: pointer;

@@ -3,6 +3,7 @@ import {observer} from "mobx-react-lite";
 import {useToDoListStore} from "../../../mobx";
 import {Button} from "../../../components/common";
 import {ReactComponent as DeleteIcon} from "../../../img/delete.svg";
+import style from "./ToDoItem.module.scss";
 
 interface Props {
     id: string;
@@ -14,17 +15,19 @@ interface Props {
 const ToDoItem: React.FC<Props> = observer(({id, name, description, isDone}) => {
     const listStore = useToDoListStore();
 
-    return <div>
+    return <div className={style.ToDoItem}>
         <input type="checkbox" checked={isDone} onChange={() => listStore.toggleItem(id)}/>
-        <p>
+        <p className={style.name}>
             {name}
         </p>
-        <p>
+        <p className={style.description}>
             {description}
         </p>
-        <Button onClick={() => listStore.removeItemFromTheList(id)}>
-            <DeleteIcon />
-        </Button>
+        <div className={style.buttons}>
+            <Button onClick={() => listStore.removeItemFromTheList(id)}>
+                <DeleteIcon />
+            </Button>
+        </div>
     </div>;
 });
 

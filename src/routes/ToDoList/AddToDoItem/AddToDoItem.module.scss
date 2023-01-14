@@ -1,3 +1,11 @@
 .addToDoItemForm {
+	margin-top: 1rem;
+	margin-left: 1rem;
 
+	display: flex;
+	flex-direction: column;
+
+	.inputGroup {
+		margin-bottom: 0.5rem;
+	}
 }

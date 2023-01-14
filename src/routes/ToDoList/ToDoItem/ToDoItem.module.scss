@@ -1,0 +1,30 @@
+.ToDoItem {
+	align-items: flex-start;
+	border: 0.125rem solid var(--text-color-primary);
+	border-radius: var(--border-radius);
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	max-width: 100%;
+
+	.name,
+	.description {
+		margin: 0 1rem;
+		word-wrap: break-word;
+	}
+
+	.name {
+		width: 20%;
+		font-weight: 500;
+	}
+
+	.description {
+		width: 50%;
+		font-weight: 400;
+	}
+
+	.buttons {
+		margin-left: auto;
+	}
+}

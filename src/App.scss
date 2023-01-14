@@ -9,7 +9,7 @@ a {
 }
 
 :root {
-	--grey: 222, 229, 239;
+	--grey: 212, 219, 229;
 	--black: 0, 0, 0;
 
 	--blue: 82, 185, 232;
@@ -17,6 +17,7 @@ a {
 
 	//sizes
 	--app-max-width: 75rem;
+	--border-radius: 0.125rem;
 }
 
 :root .light {
