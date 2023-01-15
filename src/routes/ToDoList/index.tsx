@@ -20,7 +20,9 @@ const ToDoList: React.FC<Props> = observer(() => {
             }
         </div>
 
-        <AddToDoItem />
+        <div className={styles.form}>
+            <AddToDoItem />
+        </div>
     </div>;
 });
 

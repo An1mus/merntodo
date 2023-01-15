@@ -4,6 +4,7 @@ import {observer} from "mobx-react-lite";
 import style from './AddToDoItem.module.scss';
 import Input from "../../../components/common/Input";
 import Button from "../../../components/common/Button";
+import TextArea from "../../../components/common/Textarea";
 
 interface Props {}
 
@@ -20,11 +21,13 @@ const AddToDoItem: React.FC<Props> = () => {
                 placeholder={'name'}
             />
         </div>
-        <textarea
-            value={newTodoItem.description || ''}
-            onChange={e => setNewItemDescription(e.target.value)}
-            placeholder={'description'}
-        />
+        <div className={style.inputGroup}>
+            <TextArea
+                value={newTodoItem.description || ''}
+                onChange={e => setNewItemDescription(e.target.value)}
+                placeholder={'description'}
+            />
+        </div>
         <Button
             onClick={() => addItemToTheList(newTodoItem)}
         >
