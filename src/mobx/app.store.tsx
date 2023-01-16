@@ -1,6 +1,6 @@
 import {makeAutoObservable} from "mobx";
 import React from "react";
-import {NewToDo} from "./types";
+import {NewToDo} from "../types";
 
 class AppStore {
     newTodoItem = {} as NewToDo;
