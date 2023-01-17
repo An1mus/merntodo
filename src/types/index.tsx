@@ -4,8 +4,3 @@ export interface ToDo {
     description: string;
     isDone: boolean;
 }
-
-export interface NewToDo {
-    name: string,
-    description: string,
-}

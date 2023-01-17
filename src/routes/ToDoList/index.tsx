@@ -15,7 +15,7 @@ const ToDoList: React.FC<Props> = observer(() => {
             {
                 items.map((item) => <ToDoItem
                     key={item.id}
-                    {...item}
+                    todoItem={item}
                 />)
             }
         </div>

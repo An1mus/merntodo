@@ -4,10 +4,10 @@ import {HashRouter, Route, Routes} from "react-router-dom";
 import {ToDoList, Settings, Stats} from "./routes";
 import {Menu} from "./components";
 import {observer} from "mobx-react-lite";
-import {useAppStore} from "./mobx";
+import {useSettingsStore} from "./mobx";
 
 const App = observer(() => {
-    const appStore = useAppStore();
+    const appStore = useSettingsStore();
 
     return (
         <div className={`app ${appStore.isDarkTheme ? 'dark' : 'light'}`}>

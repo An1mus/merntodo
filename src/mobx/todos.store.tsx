@@ -1,7 +1,7 @@
 import React from "react";
 import {makeAutoObservable} from "mobx";
 import {v4 as uuid4} from 'uuid';
-import {NewToDo, ToDo} from "../types";
+import {ToDo} from "../types";
 import {db} from '../api'
 
 const INITIAL_TODO_ITEM: ToDo = {
@@ -20,7 +20,7 @@ export class ToDoListStore {
         this.fetchTodos();
     }
 
-    addItemToTheList = async ({name, description}: NewToDo) => {
+    addItemToTheList = async (name: string, description: string) => {
         const newItem = {
             id: uuid4(),
             name,
@@ -32,15 +32,16 @@ export class ToDoListStore {
         if(addRequest) this.items.unshift(newItem);
     }
 
-    removeItemFromTheList = (id: string) => {
+    removeItemFromTheList = async (id: string) => {
+        await db.deleteTodo(id);
         this.items = this.items.filter(item => item.id !== id);
     }
 
-    toggleItem = (id: string) => {
-        this.items = this.items.map(item => item.id !== id ? item : {
-            ...item,
-            isDone: !item.isDone
-        });
+    toggleItem = async (todoItem: ToDo) => {
+        const newTodoItem = {...todoItem, isDone: !todoItem.isDone};
+
+        await db.updateTodo(newTodoItem);
+        this.items = this.items.map(item => item.id !== todoItem.id ? item : newTodoItem);
     }
 
     fetchTodos = async () => {

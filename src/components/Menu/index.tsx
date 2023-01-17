@@ -1,6 +1,6 @@
 import React from "react";
 import {Logo, ThemeSwitcher} from "../common";
-import {useAppStore} from "../../mobx";
+import {useSettingsStore} from "../../mobx";
 import {observer} from "mobx-react-lite";
 import NavLink from "./NavLink";
 
@@ -29,11 +29,11 @@ const MenuItems = [
 ];
 
 const Menu = () => {
-    const appStore = useAppStore();
+    const settings = useSettingsStore();
     return <div className={styles.nav}>
         <div className={styles.navHeader}>
             <Logo/>
-            <ThemeSwitcher isOn={appStore.isDarkTheme} handleClick={() => appStore.toggleTheme()}/>
+            <ThemeSwitcher isOn={settings.isDarkTheme} handleClick={() => settings.toggleTheme()}/>
         </div>
 
         <nav>

@@ -1,7 +1,7 @@
 import {useToDoListStore} from './todos.store';
-import {useAppStore} from "./app.store";
+import {useSettingsStore} from "./settings.store";
 
 export {
     useToDoListStore,
-    useAppStore
+    useSettingsStore
 }

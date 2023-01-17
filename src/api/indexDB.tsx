@@ -8,8 +8,8 @@ interface Settings {
 interface IndexedDBAPIInterface {
     getTodos: () => Promise<ToDo[]>;
     addTodo: (todo: ToDo) => Promise<IDBValidKey>;
-    updateTodo: (todo: ToDo) => Promise<void>;
-    deleteTodo: (id: number) => Promise<void>;
+    updateTodo: (todo: ToDo) => Promise<IDBValidKey>;
+    deleteTodo: (id: string) => Promise<void>;
     getSettings: () => Promise<Settings>
     updateSettings: (settings: Settings) => Promise<void>
 }
@@ -43,14 +43,15 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
         return addRequest;
     }
 
-    async updateTodo(todo: ToDo): Promise<void> {
+    async updateTodo(todo: ToDo): Promise<IDBValidKey> {
         const db = await this.dbPromise;
         const tx = db.transaction('todos', 'readwrite');
-        tx.store.put(todo);
+        const updateRequest = tx.store.put(todo);
         await tx.done;
+        return updateRequest;
     }
 
-    async deleteTodo(id: number): Promise<void> {
+    async deleteTodo(id: string): Promise<void> {
         const db = await this.dbPromise;
         const tx = db.transaction('todos', 'readwrite');
         tx.store.delete(id);
