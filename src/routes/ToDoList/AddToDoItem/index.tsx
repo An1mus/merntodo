@@ -6,22 +6,22 @@ import Input from "../../../components/common/Input";
 import Button from "../../../components/common/Button";
 import TextArea from "../../../components/common/Textarea";
 import Dropdown from "../../../components/common/Dropdown";
-import {set} from "mobx";
 
 const DURATIONS = ['once', 'everyday', 'every other day', 'once every 3 days', 'once per week'];
 
 const AddToDoItem: React.FC = () => {
     const [newTodoItemName, setNewTodoItemName] = useState('');
     const [newTodoItemDescription, setNewTodoItemDescription] = useState('');
-
     const [duration, setDuration] = useState(DURATIONS[0]);
+
     const {addItemToTheList} = useToDoListStore();
 
     const handleNewItemAddition = () => {
-        addItemToTheList(newTodoItemName, newTodoItemDescription );
+        addItemToTheList(newTodoItemName, newTodoItemDescription, duration);
 
         setNewTodoItemName('');
         setNewTodoItemDescription('');
+        setDuration(DURATIONS[0]);
     }
 
     return <div className={style.addToDoItemForm}>

@@ -8,6 +8,7 @@ const INITIAL_TODO_ITEM: ToDo = {
     id: '007',
     name: 'Add more',
     description: 'add some more fancy stuff to experiment with the list',
+    duration: 'once',
     isDone: false
 };
 
@@ -20,11 +21,12 @@ export class ToDoListStore {
         this.fetchTodos();
     }
 
-    addItemToTheList = async (name: string, description: string) => {
+    addItemToTheList = async (name: string, description: string, duration: string) => {
         const newItem = {
             id: uuid4(),
             name,
             description,
+            duration,
             isDone: false,
         };
 
