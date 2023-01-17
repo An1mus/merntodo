@@ -23,6 +23,9 @@ a {
 :root .light {
 	--background-color-primary: rgb(var(--grey));
 	--text-color-primary: rgb(var(--black));
+	--text-color-secondary: rgba(var(--black), .8);
+	--text-color-opposite: rgba(var(--grey), .7);
+
 	--border-color: rgba(var(--black), 0.1);
 
 	--color-active: rgb(var(--orange));
@@ -31,6 +34,9 @@ a {
 :root .dark {
 	--background-color-primary: rgb(var(--black));
 	--text-color-primary: rgb(var(--grey));
+	--text-color-secondary: rgba(var(--grey), .8);
+	--text-color-opposite: rgba(var(--black), .7);
+
 	--border-color: rgba(var(--grey), 0.1);
 
 	--color-active: rgb(var(--blue));

@@ -33,6 +33,7 @@ const AddToDoItem: React.FC = () => {
                 placeholder={'name'}
             />
         </div>
+
         <div className={style.inputGroup}>
             <TextArea
                 value={newTodoItemDescription}
@@ -41,11 +42,13 @@ const AddToDoItem: React.FC = () => {
             />
         </div>
 
-        <Dropdown
-            options={DURATIONS}
-            selected={duration}
-            onSelect={setDuration}
-        />
+        <div className={style.inputGroup}>
+            <Dropdown
+                options={DURATIONS}
+                selected={duration}
+                onSelect={setDuration}
+            />
+        </div>
 
         <Button
             onClick={() => handleNewItemAddition()}
