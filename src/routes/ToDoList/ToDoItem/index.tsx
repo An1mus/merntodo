@@ -12,7 +12,7 @@ interface Props {
 
 const ToDoItem: React.FC<Props> = observer(({todoItem}) => {
     const listStore = useToDoListStore();
-    const {id, name, description, isDone} = todoItem;
+    const {id, name, description, duration, isDone} = todoItem;
 
     return <div className={style.ToDoItem}>
         <input type="checkbox" checked={isDone} onChange={() => listStore.toggleItem(todoItem)}/>
@@ -21,6 +21,9 @@ const ToDoItem: React.FC<Props> = observer(({todoItem}) => {
         </p>
         <p className={style.description}>
             {description}
+        </p>
+        <p className={style.duration}>
+            {duration || 'once'}
         </p>
         <div className={style.buttons}>
             <Button onClick={() => listStore.removeItemFromTheList(id)}>

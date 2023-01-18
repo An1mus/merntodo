@@ -20,7 +20,7 @@ const AddToDoItem: React.FC = () => {
         addItemToTheList(newTodoItemName, newTodoItemDescription, duration);
 
         setNewTodoItemName('');
-        setNewTodoItemDescription('');
+        setNewTodoItemDescription(old => '');
         setDuration(DURATIONS[0]);
     }
 
