@@ -14,17 +14,20 @@ const MenuItems = [
     {
         name: 'List',
         path: '/',
-        icon: <List />
-    },
-    {
-        name: 'Settings',
-        path: '/settings',
-        icon: <Settings />
+        icon: <List />,
+        isHidden: false
     },
     {
         name: 'Stats',
         path: '/stats',
-        icon: <Stats />
+        icon: <Stats />,
+        isHidden: true
+    },
+    {
+        name: 'Settings',
+        path: '/settings',
+        icon: <Settings />,
+        isHidden: true
     }
 ];
 
@@ -37,7 +40,7 @@ const Menu = () => {
         </div>
 
         <nav>
-            {MenuItems.map(link => <NavLink key={link.path} {...link} />)}
+            {MenuItems.filter(link => !link.isHidden).map(link => <NavLink key={link.path} {...link} />)}
         </nav>
     </div>
 }

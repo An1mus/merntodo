@@ -11,17 +11,19 @@ const ToDoList: React.FC<Props> = observer(() => {
     const {items} = useToDoListStore();
 
     return <div className={styles.todoList}>
-        <div className={styles.list}>
-            {
-                items.map((item) => <ToDoItem
-                    key={item.id}
-                    todoItem={item}
-                />)
-            }
-        </div>
+        <div className={styles.listContent}>
+            <div className={styles.list}>
+                {
+                    items.map((item) => <ToDoItem
+                        key={item.id}
+                        todoItem={item}
+                    />)
+                }
+            </div>
 
-        <div className={styles.form}>
-            <AddToDoItem />
+            <div className={styles.form}>
+                <AddToDoItem />
+            </div>
         </div>
     </div>;
 });

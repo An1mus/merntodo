@@ -7,7 +7,7 @@ import Button from "../../../components/common/Button";
 import TextArea from "../../../components/common/Textarea";
 import Dropdown from "../../../components/common/Dropdown";
 
-const DURATIONS = ['once', 'everyday', 'every other day', 'once every 3 days', 'once per week'];
+const DURATIONS = ['once', 'everyday', '1 in 2 days', '1 in 3 days', 'once per week'];
 
 const AddToDoItem: React.FC = () => {
     const [newTodoItemName, setNewTodoItemName] = useState('');
