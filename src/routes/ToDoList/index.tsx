@@ -5,7 +5,8 @@ import {observer} from "mobx-react-lite";
 import AddToDoItem from "./AddToDoItem";
 import styles from './ToDoList.module.scss';
 
-interface Props {}
+interface Props {
+}
 
 const ToDoList: React.FC<Props> = observer(() => {
     const {items} = useToDoListStore();
@@ -22,7 +23,7 @@ const ToDoList: React.FC<Props> = observer(() => {
             </div>
 
             <div className={styles.form}>
-                <AddToDoItem />
+                <AddToDoItem/>
             </div>
         </div>
     </div>;
