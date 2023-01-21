@@ -27,7 +27,7 @@ const ToDoItem: React.FC<Props> = observer(({todoItem}) => {
         </p>
         <div className={style.buttons}>
             <Button onClick={() => listStore.removeItemFromTheList(id)}>
-                <DeleteIcon />
+                <DeleteIcon/>
             </Button>
         </div>
     </div>;
