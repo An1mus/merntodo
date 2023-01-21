@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import style from './Dropdown.module.scss';
 
 interface DropdownProps {
+    id?: string;
     options: string[];
     selected: string;
     onSelect: (value: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ options, selected, onSelect }) => {
+const Dropdown: React.FC<DropdownProps> = ({ id, options, selected, onSelect }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className={style.dropdown}>
-            <button className={style.selected} onClick={() => setIsOpen(!isOpen)}>
+            <button id={id} className={style.selected} onClick={() => setIsOpen(!isOpen)}>
                 {selected}
             </button>
             {isOpen && (

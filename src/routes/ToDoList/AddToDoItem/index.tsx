@@ -20,13 +20,14 @@ const AddToDoItem: React.FC = () => {
         addItemToTheList(newTodoItemName, newTodoItemDescription, duration);
 
         setNewTodoItemName('');
-        setNewTodoItemDescription(old => '');
+        setNewTodoItemDescription('');
         setDuration(DURATIONS[0]);
     }
 
     return <div className={style.addToDoItemForm}>
         <div className={style.inputGroup}>
             <Input
+                id={'name'}
                 type="text"
                 value={newTodoItemName}
                 onChange={e => setNewTodoItemName(e.target.value)}
@@ -36,6 +37,7 @@ const AddToDoItem: React.FC = () => {
 
         <div className={style.inputGroup}>
             <TextArea
+                id={'description'}
                 value={newTodoItemDescription}
                 onChange={e => setNewTodoItemDescription(e.target.value)}
                 placeholder={'description'}
@@ -44,6 +46,7 @@ const AddToDoItem: React.FC = () => {
 
         <div className={style.inputGroup}>
             <Dropdown
+                id={'duration'}
                 options={DURATIONS}
                 selected={duration}
                 onSelect={setDuration}
@@ -51,6 +54,7 @@ const AddToDoItem: React.FC = () => {
         </div>
 
         <Button
+            id={'confirm'}
             onClick={() => handleNewItemAddition()}
         >
             Confirm

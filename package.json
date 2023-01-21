@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "playwright test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +49,8 @@
     ]
   },
   "devDependencies": {
-    "@types/uuid": "^9.0.0"
+    "@playwright/test": "^1.29.2",
+    "@types/uuid": "^9.0.0",
+    "playwright": "^1.29.2"
   }
 }
