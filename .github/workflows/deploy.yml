@@ -8,13 +8,13 @@ on:
 jobs:
   start:
     runs-on: ubuntu-latest
-    timeout-,minutes: 10
+    timeout-minutes: 10
     steps:
       - name: Start the application
         run: npm start
   test:
     runs-on: ubuntu-latest
-    timeout-,minutes: 10
+    timeout-minutes: 10
     steps:
       - name: Run Playwright tests
         run: npx playwright test
