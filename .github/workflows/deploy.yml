@@ -18,10 +18,3 @@ jobs:
     steps:
       - name: Run Playwright tests
         run: npx playwright test
-
-strategy:
-  matrix:
-    test:
-      test: true
-    start:
-      start: true

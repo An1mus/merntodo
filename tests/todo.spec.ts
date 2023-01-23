@@ -28,8 +28,15 @@ test.describe('Todo items addition', () => {
 
         await addItemToThePage(page, TODO_NAME, TODO_DESCRIPTION);
 
-        const firstListElement = await page.getByTestId('list');
-        console.log(firstListElement);
+
+        const elementsBeforeDeletion = await page.locator('#list > div').count();
+
+        // Click on delete button
+        await page.locator('#list > div').first().locator('button').click();
+
+        const elementsAfterDeletion = await page.locator('#list > div').count();
+
+        expect(elementsBeforeDeletion - elementsAfterDeletion).toEqual(1);
     });
 });
 
