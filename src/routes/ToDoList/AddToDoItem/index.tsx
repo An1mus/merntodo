@@ -6,14 +6,15 @@ import Input from "../../../components/common/Input";
 import Button from "../../../components/common/Button";
 import TextArea from "../../../components/common/Textarea";
 import Dropdown from "../../../components/common/Dropdown";
+import {Duration} from "../../../types";
 
-const DURATIONS = ['once', 'everyday', '1 in 2 days', '1 in 3 days', 'once per week'];
+const DURATIONS = Object.values(Duration);
 
 const AddToDoItem: React.FC = () => {
     const [newTodoItemName, setNewTodoItemName] = useState('');
     const [newTodoItemDescription, setNewTodoItemDescription] = useState('');
     const [nameError, setNameError] = useState(false);
-    const [duration, setDuration] = useState(DURATIONS[0]);
+    const [duration, setDuration] = useState(Duration.ONCE);
 
     const {addItemToTheList} = useToDoListStore();
 
@@ -61,7 +62,7 @@ const AddToDoItem: React.FC = () => {
                 id={'duration'}
                 options={DURATIONS}
                 selected={duration}
-                onSelect={setDuration}
+                onSelect={value => setDuration(Duration[value as keyof typeof Duration])}
             />
         </div>
 

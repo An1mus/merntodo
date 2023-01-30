@@ -1,4 +1,4 @@
-import { openDB, IDBPDatabase } from 'idb';
+import {openDB, IDBPDatabase} from 'idb';
 import {ToDo} from "../types";
 
 interface Settings {
@@ -21,15 +21,23 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
         this.dbPromise = openDB<{ todos: ToDo[]; settings: Settings }>('todo-app', 1, {
             upgrade(db) {
                 if (!db.objectStoreNames.contains('todos')) {
-                    db.createObjectStore('todos', { keyPath: 'id', autoIncrement: true });
+                    db.createObjectStore('todos', {keyPath: 'id', autoIncrement: true});
                 }
                 if (!db.objectStoreNames.contains('settings')) {
-                    db.createObjectStore('settings', { keyPath: 'id' });
+                    db.createObjectStore('settings', {keyPath: 'id'});
+                }
+                if (!db.objectStoreNames.contains('repeatableTodos')) {
+                    db.createObjectStore('repeatableTodos', {keyPath: 'id'});
                 }
             },
         });
     }
 
+    /**
+     *
+     * Todos
+     *
+     */
     async getTodos(): Promise<ToDo[]> {
         const db = await this.dbPromise;
         return db.getAll('todos');
@@ -58,6 +66,11 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
         await tx.done;
     }
 
+    /**
+     *
+     * Settings
+     *
+     */
     async getSettings(): Promise<Settings> {
         const db = await this.dbPromise;
         return db.get('settings', 1);
@@ -68,6 +81,16 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
         const tx = db.transaction('settings', 'readwrite');
         tx.store.put(settings, 1);
         await tx.done;
+    }
+
+    /**
+     *
+     * Repeatable todos
+     *
+     */
+
+    async addRepeatableTodo() {
+
     }
 }
 
