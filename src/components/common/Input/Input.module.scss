@@ -1,8 +1,22 @@
 .input {
 	border: 0;
 	border-radius: var(--border-radius);
+	box-shadow: 0 0 0 var(--background-color-primary);
 	display: block;
 	outline: none;
 	padding: 0.75rem 1rem;
 	width: 100%;
+
+	&.error {
+		animation: pulse 3s forwards;
+	}
+}
+
+@keyframes pulse {
+	0%, 20%, 40%, 60%, 80%, 100% {
+		box-shadow: 0 0 0 var(--background-color-primary);
+	}
+	10%, 30%, 50%, 70%, 90% {
+		box-shadow: 0 0 1.5rem var(--error);
+	}
 }

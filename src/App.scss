@@ -11,6 +11,8 @@ a {
 :root {
 	--grey: 212, 219, 229;
 	--black: 0, 0, 0;
+	--red: 255, 20, 20;
+	--light-red: 255, 129, 129;
 
 	--blue: 82, 185, 232;
 	--orange: 240, 125, 49;
@@ -26,6 +28,8 @@ a {
 	--text-color-secondary: rgba(var(--black), .8);
 	--text-color-opposite: rgba(var(--grey), .7);
 
+	--error: rgb(var(--red));
+
 	--border-color: rgba(var(--black), 0.1);
 
 	--color-active: rgb(var(--orange));
@@ -36,6 +40,8 @@ a {
 	--text-color-primary: rgb(var(--grey));
 	--text-color-secondary: rgba(var(--grey), .8);
 	--text-color-opposite: rgba(var(--black), .7);
+
+	--error: rgb(var(--red));
 
 	--border-color: rgba(var(--grey), 0.1);
 

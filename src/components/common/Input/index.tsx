@@ -2,15 +2,17 @@ import React from 'react';
 import styles from './Input.module.scss';
 
 interface Props {
-    id?: string;
-    type: 'text' | 'number'
+    type: 'text' | 'number';
     value: string | number;
     placeholder: string;
-    onChange: React.EventHandler<any>
+    onChange: React.EventHandler<any>;
+    isError?: boolean;
+    id?: string;
 }
 
-const Input: React.FC<Props> = ({id, type,value, placeholder, onChange}) => {
-    return <input id={id} className={styles.input} type={type} value={value} onChange={onChange} placeholder={placeholder}/>;
+const Input: React.FC<Props> = ({type, value, placeholder, onChange, isError= false, id}) => {
+    return <input id={id} className={`${styles.input} ${isError ? styles.error : ''}`} type={type} value={value} onChange={onChange}
+                  placeholder={placeholder}/>;
 }
 
 export default Input;

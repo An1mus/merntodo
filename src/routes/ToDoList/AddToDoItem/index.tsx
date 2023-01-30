@@ -12,12 +12,23 @@ const DURATIONS = ['once', 'everyday', '1 in 2 days', '1 in 3 days', 'once per w
 const AddToDoItem: React.FC = () => {
     const [newTodoItemName, setNewTodoItemName] = useState('');
     const [newTodoItemDescription, setNewTodoItemDescription] = useState('');
+    const [nameError, setNameError] = useState(false);
     const [duration, setDuration] = useState(DURATIONS[0]);
 
     const {addItemToTheList} = useToDoListStore();
 
-    const handleNewItemAddition = () => {
-        addItemToTheList(newTodoItemName, newTodoItemDescription, duration);
+    const handleNewItemAddition = async () => {
+        if(!newTodoItemName) {
+            setNameError(true);
+            const pulse = setTimeout(() => {
+                setNameError(false);
+                clearTimeout(pulse);
+            }, 3000);
+            return;
+        }
+
+
+        await addItemToTheList(newTodoItemName, newTodoItemDescription, duration);
 
         setNewTodoItemName('');
         setNewTodoItemDescription('');
@@ -27,6 +38,7 @@ const AddToDoItem: React.FC = () => {
     return <div className={style.addToDoItemForm}>
         <div className={style.inputGroup}>
             <Input
+                isError={nameError}
                 id={'name'}
                 type="text"
                 value={newTodoItemName}
