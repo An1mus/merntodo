@@ -13,7 +13,7 @@ const Stats: React.FC<Props> = () => {
     const data = Array.from({ length: 365 }, (_, i) => {
         const prevDate = new Date(startOfYear.getTime() - i * millisecondsPerDay);
         return {
-            date: formatDate(prevDate),
+            date: prevDate,
             count: Math.floor(Math.random() * 100) // replace with actual data
         };
     });
