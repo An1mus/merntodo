@@ -39,7 +39,7 @@ const HeatMap: React.FC<Props> = ({ data }) => {
 
     return <>
         <div className={styles.container} ref={svgRef} onMouseLeave={() => setTooltipVisible(false)}></div>
-        {tooltipVisible && <div className={styles.tooltip}>{count}:{date}</div>}
+        {tooltipVisible && <div className={styles.tooltip}>{count}:{formatDate(date)}</div>}
     </>
 };
 
