@@ -2,8 +2,7 @@ import React from 'react';
 import Heatmap from "./Heatmap";
 import {formatDate} from "../../utils";
 
-interface Props {
-}
+interface Props {}
 
 const Stats: React.FC<Props> = () => {
     const today = new Date();
@@ -13,7 +12,7 @@ const Stats: React.FC<Props> = () => {
     const data = Array.from({ length: 365 }, (_, i) => {
         const prevDate = new Date(startOfYear.getTime() - i * millisecondsPerDay);
         return {
-            date: prevDate,
+            date: formatDate(prevDate),
             count: Math.floor(Math.random() * 100) // replace with actual data
         };
     });

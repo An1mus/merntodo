@@ -4,7 +4,7 @@ import {SVGGraph} from 'calendar-graph';
 import {formatDate} from "../../utils";
 import styles from './Heatmap.module.scss';
 
-interface HeatmapDay { count: number; date: Date }
+interface HeatmapDay { count: number; date: string }
 
 interface Props {
     data: Array<HeatmapDay>;
@@ -32,11 +32,6 @@ const HeatMap: React.FC<Props> = ({ data }) => {
                     setCount(v.count);
                     setDate(v.date.toString());
                     setTooltipVisible(true);
-                },
-                styleOptions: {
-                    textColor: '#7e7e7e',
-                    fontSize: '12px',
-                    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
                 }
             })
         }
