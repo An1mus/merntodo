@@ -44,7 +44,7 @@ const AddToDoItem: React.FC = () => {
                 type="text"
                 value={newTodoItemName}
                 onChange={e => setNewTodoItemName(e.target.value)}
-                placeholder={'name'}
+                placeholder={'name*'}
             />
         </div>
 

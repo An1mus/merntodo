@@ -15,13 +15,11 @@ const MenuItems = [
         name: 'List',
         path: '/',
         icon: <List />,
-        isHidden: false
     },
     {
         name: 'Stats',
         path: '/stats',
         icon: <Stats />,
-        isHidden: true
     },
     {
         name: 'Settings',
