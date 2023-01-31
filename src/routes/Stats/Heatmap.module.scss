@@ -1,0 +1,9 @@
+.container {
+	& > svg > rect {
+		fill: none;
+	}
+}
+
+.tootip {
+	position: absolute;
+}
