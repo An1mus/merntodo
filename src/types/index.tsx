@@ -13,3 +13,8 @@ export enum Duration {
     TRIDAILY = '1 in 3 days',
     WEEKLY = 'once per week'
 }
+
+export interface HistoricalData {
+    date: string,
+    count: number
+}

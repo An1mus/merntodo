@@ -1,5 +1,5 @@
 import {openDB, IDBPDatabase} from 'idb';
-import {Duration, ToDo} from "../types";
+import {Duration, HistoricalData, ToDo} from "../types";
 
 interface Settings {
     theme: string;
@@ -14,13 +14,21 @@ interface IndexedDBAPIInterface {
     updateSettings: (settings: Settings) => Promise<void>
 }
 
+interface DatabaseContent {
+    todos: ToDo[];
+    settings: Settings,
+    repeatableTodos: ToDo[],
+    historicalData: HistoricalData[]
+}
+
 const REPEATABLE_TODO_TABLE_NAME = 'repeatableTodos';
+const HISTORICAL_DATA_TABLE_NAME = 'historicalData';
 
 class IndexedDBAPI implements IndexedDBAPIInterface {
-    dbPromise: Promise<IDBPDatabase<{ todos: ToDo[]; settings: Settings }>>;
+    dbPromise: Promise<IDBPDatabase<DatabaseContent>>;
 
     constructor() {
-        this.dbPromise = openDB<{ todos: ToDo[]; settings: Settings }>('todo-app', 1, {
+        this.dbPromise = openDB<DatabaseContent>('todo-app', 1, {
             upgrade(db) {
                 if (!db.objectStoreNames.contains('todos')) {
                     db.createObjectStore('todos', {keyPath: 'id', autoIncrement: true});
@@ -28,8 +36,11 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
                 if (!db.objectStoreNames.contains('settings')) {
                     db.createObjectStore('settings', {keyPath: 'id'});
                 }
-                if (!db.objectStoreNames.contains(REPEATABLE_TODO_TABLE_NAME)) {
-                    db.createObjectStore(REPEATABLE_TODO_TABLE_NAME, {keyPath: 'id'});
+                if (!db.objectStoreNames.contains('repeatableTodos')) {
+                    db.createObjectStore('repeatableTodos', {keyPath: 'id'});
+                }
+                if (!db.objectStoreNames.contains('historicalData')) {
+                    const result = db.createObjectStore('historicalData', {keyPath: 'date'});
                 }
             },
         });
@@ -48,7 +59,7 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
     async addTodo(todo: ToDo): Promise<IDBValidKey> {
         const db = await this.dbPromise;
         const tx = db.transaction('todos', 'readwrite');
-        if(todo.duration !== Duration.ONCE) await this.addRepeatableTodo(todo);
+        if (todo.duration !== Duration.ONCE) await this.addRepeatableTodo(todo);
         const addRequest = tx.store.add(todo);
         await tx.done;
         return addRequest;
@@ -106,6 +117,23 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
         const db = await this.dbPromise;
         const tx = db.transaction(REPEATABLE_TODO_TABLE_NAME, 'readwrite');
         tx.store.delete(id);
+    }
+
+    /**
+     *
+     * Historical data
+     *
+     */
+
+    async getHistoricalData(): Promise<HistoricalData[]> {
+        const db = await this.dbPromise;
+        return await db.getAll(HISTORICAL_DATA_TABLE_NAME);
+    }
+
+    async putHistoricalData(dayData: HistoricalData) {
+        const db = await this.dbPromise;
+        const tx = db.transaction(HISTORICAL_DATA_TABLE_NAME, 'readwrite');
+        tx.store.put(dayData);
     }
 }
 
