@@ -25,7 +25,7 @@ const HeatMap: React.FC<Props> = ({data}) => {
                 startDate: new Date(new Date().getTime() - yearMs),
                 endDate: new Date(),
                 colorFun: (v: HistoricalData) => {
-                    return `rgba(108, 198, 68, .${v.count})`;
+                    return `rgba(108, 198, 68, ${v.count}%)`;
                 },
                 onHover: (v: HistoricalData) => {
                     setCount(v.count);
@@ -36,10 +36,10 @@ const HeatMap: React.FC<Props> = ({data}) => {
         }
     }, [])
 
-    return <>
-        <div className={styles.container} ref={svgRef} onMouseLeave={() => setTooltipVisible(false)}></div>
+    return <div className={styles.heatmapContainer}>
+        <div className={styles.svgContainer} ref={svgRef} onMouseLeave={() => setTooltipVisible(false)}></div>
         {tooltipVisible && <div className={styles.tooltip}>{count}:{formatDate(date)}</div>}
-    </>
+    </div>
 };
 
 export default HeatMap;
