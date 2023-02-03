@@ -7,3 +7,7 @@
 .tooltip {
 	position: absolute;
 }
+
+rect[data-count="0"] {
+	stroke: var(--light-border-color);
+}

@@ -17,15 +17,13 @@ const HeatMap: React.FC<Props> = ({data}) => {
     const [tooltipVisible, setTooltipVisible] = useState(false);
     const yearMs = 365 * 24 * 3600 * 1000;
 
-    console.log(data);
-
     useEffect(() => {
         if (!svgRef.current) return;
 
         if (!chart.current) {
             chart.current = new SVGGraph(svgRef.current, data, {
-                startDate: new Date(formatDate(new Date(new Date().getTime() - yearMs))),
-                endDate: new Date(formatDate(new Date())),
+                startDate: new Date(new Date().getTime() - yearMs),
+                endDate: new Date(),
                 colorFun: (v: HistoricalData) => {
                     return `rgba(108, 198, 68, .${v.count})`;
                 },

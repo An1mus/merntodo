@@ -20,7 +20,7 @@ const Stats: React.FC<Props> = () => {
                 const prevDate = new Date(today.getTime() - (i + dbResponse.length) * millisecondsPerDay);
                 return {
                     date: formatDate(prevDate),
-                    count: 1
+                    count: 0
                 };
             })
 
@@ -30,7 +30,7 @@ const Stats: React.FC<Props> = () => {
 
     return <>
         <h1>Stats</h1>
-        <Heatmap data={heatMapData}/>
+        {heatMapData.length > 0 && <Heatmap data={heatMapData}/>}
     </>;
 }
 

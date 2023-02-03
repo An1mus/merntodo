@@ -40,7 +40,7 @@ class IndexedDBAPI implements IndexedDBAPIInterface {
                     db.createObjectStore('repeatableTodos', {keyPath: 'id'});
                 }
                 if (!db.objectStoreNames.contains('historicalData')) {
-                    const result = db.createObjectStore('historicalData', {keyPath: 'date'});
+                    db.createObjectStore('historicalData', {keyPath: 'date'});
                 }
             },
         });

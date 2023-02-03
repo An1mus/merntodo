@@ -31,6 +31,7 @@ a {
 	--error: rgb(var(--red));
 
 	--border-color: rgba(var(--black), 0.1);
+	--light-border-color: rgba(var(--black), 0.1);
 
 	--color-active: rgb(var(--orange));
 }
@@ -44,6 +45,7 @@ a {
 	--error: rgb(var(--red));
 
 	--border-color: rgba(var(--grey), 0.1);
+	--light-border-color: rgba(var(--grey), 0.1);
 
 	--color-active: rgb(var(--blue));
 }
