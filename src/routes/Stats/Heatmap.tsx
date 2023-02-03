@@ -14,8 +14,13 @@ const HeatMap: React.FC<Props> = ({data}) => {
     const chart = useRef(null);
     const [count, setCount] = useState(0);
     const [date, setDate] = useState('');
+    const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
     const [tooltipVisible, setTooltipVisible] = useState(false);
     const yearMs = 365 * 24 * 3600 * 1000;
+
+    const handleMouseMove = (e: MouseEvent) => {
+        if(e.offsetX > 0 && e.offsetY > 0) setMousePosition({x: e.offsetX, y: e.offsetY});
+    }
 
     useEffect(() => {
         if (!svgRef.current) return;
@@ -30,15 +35,27 @@ const HeatMap: React.FC<Props> = ({data}) => {
                 onHover: (v: HistoricalData) => {
                     setCount(v.count);
                     setDate(v.date.toString());
-                    setTooltipVisible(true);
                 }
             })
         }
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        }
     }, [])
 
-    return <div className={styles.heatmapContainer}>
-        <div className={styles.svgContainer} ref={svgRef} onMouseLeave={() => setTooltipVisible(false)}></div>
-        {tooltipVisible && <div className={styles.tooltip}>{count}:{formatDate(date)}</div>}
+    return <div className={styles.heatmapContainer} onMouseEnter={() => setTooltipVisible(true)} onMouseLeave={() => setTooltipVisible(false)}>
+        <div className={styles.svgContainer} ref={svgRef}></div>
+        {
+            tooltipVisible && <div
+                style={{top: `${mousePosition.y}px`, left:`${mousePosition.x}px`}}
+                className={styles.tooltip}
+            >
+                <p>{count}% Done</p>
+                <small>{formatDate(date)}</small>
+            </div>}
     </div>
 };
 
