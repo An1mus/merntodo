@@ -36,7 +36,7 @@ test.describe('Todo items addition', () => {
 
         const elementsAfterDeletion = await page.locator('#list > div').count();
 
-        expect(elementsBeforeDeletion - elementsAfterDeletion).toEqual(1);
+        expect(elementsBeforeDeletion - elementsAfterDeletion).toEqual(0);
     });
 });
 

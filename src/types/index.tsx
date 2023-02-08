@@ -9,9 +9,9 @@ export interface ToDo {
 export enum Duration {
     ONCE = 'once',
     DAILY = 'everyday',
-    BIDAILY = '1 in 2 days',
-    TRIDAILY = '1 in 3 days',
-    WEEKLY = 'once per week'
+    // BIDAILY = '1 in 2 days',
+    // TRIDAILY = '1 in 3 days',
+    // WEEKLY = 'once per week'
 }
 
 export interface HistoricalData {
