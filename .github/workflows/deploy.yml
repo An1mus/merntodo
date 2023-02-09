@@ -1,14 +1,33 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  test:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+
     steps:
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run tests
+        run: |
+          npm run test
+
+      - name: Build app
+        run: |
+          npm run build
+
+      - name: Deploy to Github pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_PUBLISH_KEY }}
+          BRANCH: gh-pages
+          FOLDER: build
