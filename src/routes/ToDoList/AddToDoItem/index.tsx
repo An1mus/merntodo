@@ -28,7 +28,6 @@ const AddToDoItem: React.FC = () => {
             return;
         }
 
-
         await addItemToTheList(newTodoItemName, newTodoItemDescription, duration);
 
         setNewTodoItemName('');
