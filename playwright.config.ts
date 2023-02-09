@@ -10,7 +10,7 @@ export default defineConfig({
                 video: 'on-first-retry',
                 colorScheme: 'dark',
                 launchOptions: {
-                    headless: false,
+                    headless: true,
                     slowMo: 1500,
                 },
                 ...devices['Desktop Chrome'],
