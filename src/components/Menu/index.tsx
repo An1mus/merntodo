@@ -10,7 +10,7 @@ import {ReactComponent as List} from '../../img/nav/list-check.svg';
 import {ReactComponent as Settings} from '../../img/nav/gear.svg';
 import {ReactComponent as Stats} from '../../img/nav/clipboard-data.svg';
 
-const MenuItems = [
+export const MenuItems = [
     {
         name: 'List',
         path: '/',

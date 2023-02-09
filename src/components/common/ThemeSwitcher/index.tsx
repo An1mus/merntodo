@@ -7,7 +7,7 @@ interface Props {
 }
 
 const ThemeSwitcher: React.FC<Props> = ({isOn, handleClick}) => {
-    return <div onClick={() => handleClick()} className={`${styles.switch} ${isOn ? styles.dark : styles.light}`}>
+    return <div data-testid='themeSwitch' onClick={() => handleClick()} className={`${styles.switch} ${isOn ? styles.dark : styles.light}`}>
         <svg width="335" height="141" viewBox="0 0 335 141" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="1" y="1" width="334" height="139" rx="69.5" fill="#D9D9D9"/>
             <rect className={styles.sky} x="8" y="8" width="320" height="125" rx="62.5" fill="#008DC9"/>

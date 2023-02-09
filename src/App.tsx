@@ -10,7 +10,7 @@ const App = observer(() => {
     const appStore = useSettingsStore();
 
     return (
-        <div className={`app ${appStore.isDarkTheme ? 'dark' : 'light'}`}>
+        <div data-testid='app' className={`app ${appStore.isDarkTheme ? 'dark' : 'light'}`}>
             <HashRouter>
                 <Menu />
                 <div className="content-container">

@@ -1,5 +1,4 @@
 import {test, expect} from '@playwright/test';
-import {Page} from "playwright";
 
 const TODO_URL = 'http://localhost:3000/';
 
@@ -36,11 +35,11 @@ test.describe('Todo items addition', () => {
 
         const elementsAfterDeletion = await page.locator('#list > div').count();
 
-        expect(elementsBeforeDeletion - elementsAfterDeletion).toEqual(0);
+        expect(elementsBeforeDeletion - elementsAfterDeletion).toEqual(1);
     });
 });
 
-const addItemToThePage = async (page: Page, name: string, description: string) => {
+const addItemToThePage = async (page: any, name: string, description: string) => {
     await page.locator('input#name').fill(name)
     await page.locator('textarea#description').fill(description);
     await page.locator('button#confirm').click();
