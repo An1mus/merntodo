@@ -1,4 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
+import {defineConfig, devices} from '@playwright/test';
+
 export default defineConfig({
     projects: [
         {
@@ -9,10 +10,10 @@ export default defineConfig({
                 video: 'on-first-retry',
                 colorScheme: 'dark',
                 launchOptions: {
-                    // headless: false,
-                    // slowMo: 1000,
+                    headless: false,
+                    slowMo: 1500,
                 },
-                ...devices['Desktop Chrome']
+                ...devices['Desktop Chrome'],
             },
         }
     ],

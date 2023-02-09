@@ -46,7 +46,7 @@ const HeatMap: React.FC<Props> = ({data}) => {
         }
     }, [])
 
-    return <div className={styles.heatmapContainer} onMouseEnter={() => setTooltipVisible(true)} onMouseLeave={() => setTooltipVisible(false)}>
+    return <div id='heatmap' className={styles.heatmapContainer} onMouseEnter={() => setTooltipVisible(true)} onMouseLeave={() => setTooltipVisible(false)}>
         <div className={styles.svgContainer} ref={svgRef}></div>
         {
             tooltipVisible && <div

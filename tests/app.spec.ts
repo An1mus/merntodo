@@ -1,22 +1,24 @@
 import {expect, test} from "@playwright/test";
-
-const DARK_CLASS_LIST = 'app dark';
-const LIGHT_CLASS_LIST = 'app light';
-
-const html = `<!DOCTYPE html>
-<html><body><div data-testid="app" class="foo bar baz">hi</div></body></html>`;
+import {APP_URL} from "./const";
 
 test.describe('App general functionality', () => {
-    test('App is present', async ({page}) => {
-        const app = await page.getByTestId('app');
+    test('App is rendered', async ({page}) => {
+        await page.goto(APP_URL);
 
-        expect(app).toBeTruthy();
+        await expect(page.getByRole('link', { name: 'List' })).toBeVisible();
     });
 
     test('Theme switches normally', async ({page}) => {
+        await page.goto(APP_URL);
         const app = await page.getByTestId('app');
         const themeSwitch = await page.getByTestId('themeSwitch');
 
-        const classList = await app.evaluate(el => el);
+        await themeSwitch.click();
+
+        await expect(app).toHaveClass(/\blight\b/);
+
+        await themeSwitch.click();
+
+        await expect(app).toHaveClass(/\bdark\b/);
     });
 });
